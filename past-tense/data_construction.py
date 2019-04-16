@@ -1,6 +1,6 @@
 import csv
 
-with open("all_verbs.csv", 'r') as f:
+with open("data/all_verbs.csv", 'r') as f:
      csv_reader = csv.reader(f)
      for row in csv_reader:
          verbs.append(row[0])
@@ -17,7 +17,7 @@ for item in subjects:
      for verb in verbs:
          sens.append((item[0] + ' ' + verb, item[1]))
 
-with open("simple_data.csv", 'w') as csv_file:
+with open("data/simple_data.csv", 'w') as csv_file:
      data_writer = csv.writer(csv_file, delimiter = ',')
      for row in sens:
          data_writer.writerow(list(row))

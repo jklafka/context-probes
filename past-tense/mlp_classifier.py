@@ -1,4 +1,3 @@
-import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
@@ -8,7 +7,7 @@ from sklearn.metrics import accuracy_score, confusion_matrix
 
 
 
-df = pd.read_csv("dataset.csv", header=None)
+df = pd.read_csv("data/dataset.csv", header=None)
 X = df.loc[:, :511] #first 512 columns are embeddings
 Y = df.loc[:, 512] #last column is class label
 
