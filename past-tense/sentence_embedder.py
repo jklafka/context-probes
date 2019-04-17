@@ -2,14 +2,20 @@ import tensorflow as tf
 import tensorflow_hub as hub
 import numpy as np
 import csv
+import argparse
 
 #using the tensorflow universal sentence encoder from Google to construct
 #512-dimensional sentence embeddings
 embed = hub.Module("https://tfhub.dev/google/universal-sentence-encoder/2")
 
+parser = argparse.ArgumentParser()
+parser.add_argument("data")
+args = parser.parse_args()
+dataname = args.data
+
 sentences = []
 messages = []
-with open("data/simple_data.csv", 'r') as simple_data:
+with open("data/" + dataname, 'r') as simple_data:
     csv_reader = csv.reader(simple_data)
     for row in csv_reader:
         sentences.append((row[0], row[1]))

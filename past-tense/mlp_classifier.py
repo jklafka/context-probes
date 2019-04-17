@@ -5,8 +5,6 @@ from sklearn.neural_network import MLPClassifier
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score, confusion_matrix
 
-
-
 df = pd.read_csv("data/dataset.csv", header=None)
 X = df.loc[:, :511] #first 512 columns are embeddings
 Y = df.loc[:, 512] #last column is class label
