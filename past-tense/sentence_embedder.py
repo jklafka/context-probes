@@ -10,8 +10,10 @@ embed = hub.Module("https://tfhub.dev/google/universal-sentence-encoder/2")
 
 parser = argparse.ArgumentParser()
 parser.add_argument("data")
+parser.add_argument("output")
 args = parser.parse_args()
 dataname = args.data
+output_filename = args.output
 
 sentences = []
 messages = []
@@ -28,7 +30,7 @@ with tf.Session() as session:
   session.run([tf.global_variables_initializer(), tf.tables_initializer()])
   message_embeddings = session.run(embed(messages))
 
-  with open("data/dataset.csv", 'w') as dataset:
+  with open("data/" + output_filename, 'w') as dataset:
       csv_writer = csv.writer(dataset, delimiter = ',')
       for i, message_embedding in enumerate(np.array(message_embeddings).tolist()):
           csv_writer.writerow(message_embedding + [sentences[i][1]])
