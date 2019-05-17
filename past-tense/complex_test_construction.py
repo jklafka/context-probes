@@ -19,9 +19,6 @@ testSubjs = [('Dog', 0), ('Dogs', 1), ('Cat', 0), \
     ('Cats', 1), ('Bird', 0), ('Birds', 1), ('Friend', 0), ('Friends', 1), \
     ('Savior', 0), ('Saviors', 1), ('Doctor', 0), ('Doctors', 1)]
 
-testObjs = ['store', 'stores', 'student', 'students', 'painter', 'painters', \
-    'teacher', 'teachers']
-
 subjectRCs = ["The {} that I wanted", "The {} that we wanted", \
     "The {} that they liked", "The {} that he wanted"]
 
@@ -41,33 +38,34 @@ sens = []
 
 for testVerb in testVerbs:
     for testSubj in testSubjs:
-        for testObj in testObjs:
-            sens.append(("The " + testSubj[0] + ' ' + testVerb, testSubj[1]))
-            sens.append(("The " + testSubj[0] + ' ' + testVerb + ' ' \
-                + testObj, testSubj[1]))
-            for subjectRC in subjectRCs:
-                sens.append((subjectRC.format(testSubj[0]) + ' ' + testVerb, \
-                    testSubj[1]))
-                sens.append((subjectRC.format(testSubj[0]) + ' ' + testVerb +\
-                    ' ' + testObj, testSubj[1]))
-                for objectRC in objectRCs:
-                    sens.append(("The " + testSubj[0] + ' ' + testVerb + ' ' \
-                        + objectRC.format(testObj), testSubj[1]))
-                    for itCleft in itClefts:
-                        sens.append((itCleft.format(testObj) + " the " + \
-                            testSubj[0] + ' ' + testVerb, testSubj[1]))
-                        for negAdjunct in negAdjuncts:
-                            sens.append(("The " + testSubj[0] + ' ' + \
-                                testVerb + ' ' + negAdjunct.format(testObj), \
-                                testSubj[1]))
-                            for embedClause in embedClauses:
+        for testObj in testSubjs:
+            if testObj != testSubj:
+                sens.append(("The " + testSubj[0] + ' ' + testVerb, testSubj[1]))
+                sens.append(("The " + testSubj[0] + ' ' + testVerb + ' ' \
+                    + testObj[0], testSubj[1]))
+                for subjectRC in subjectRCs:
+                    sens.append((subjectRC.format(testSubj[0]) + ' ' + testVerb, \
+                        testSubj[1]))
+                    sens.append((subjectRC.format(testSubj[0]) + ' ' + testVerb +\
+                        ' ' + testObj[0], testSubj[1]))
+                    for objectRC in objectRCs:
+                        sens.append(("The " + testSubj[0] + ' ' + testVerb + ' ' \
+                            + objectRC.format(testObj[0]), testSubj[1]))
+                        for itCleft in itClefts:
+                            sens.append((itCleft.format(testObj[0]) + " the " + \
+                                testSubj[0] + ' ' + testVerb, testSubj[1]))
+                            for negAdjunct in negAdjuncts:
                                 sens.append(("The " + testSubj[0] + ' ' + \
-                                    testVerb + ' ' + testObj + ' ' \
-                                    + embedClause, testSubj[1]))
-                                for Adjunct in Adjuncts:
+                                    testVerb + ' ' + negAdjunct.format(testObj[0]), \
+                                    testSubj[1]))
+                                for embedClause in embedClauses:
                                     sens.append(("The " + testSubj[0] + ' ' + \
-                                        testVerb + ' ' + testObj + ' ' \
-                                        + Adjunct, testSubj[1]))
+                                        testVerb + ' ' + testObj[0] + ' ' \
+                                        + embedClause, testSubj[1]))
+                                    for Adjunct in Adjuncts:
+                                        sens.append(("The " + testSubj[0] + ' ' + \
+                                            testVerb + ' ' + testObj[0] + ' ' \
+                                            + Adjunct, testSubj[1]))
 
 random.shuffle(sens)
 

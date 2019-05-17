@@ -5,11 +5,11 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.model_selection import train_test_split
 
 
-df = pd.read_csv("data/train_dataset.csv", header=None)
+df = pd.read_csv("data/sentence_train.csv", header=None)
 X_train = df.loc[:, :511] #first 512 columns are embeddings
 Y_train = df.loc[:, 512] #last column is class label
 
-df = pd.read_csv("data/test_dataset.csv", header=None)
+df = pd.read_csv("data/sentence_test.csv", header=None)
 X_test = df.loc[:, :511] #first 512 columns are embeddings
 Y_test = df.loc[:, 512] #last column is class label
 
