@@ -13,8 +13,6 @@ trainVerbs = verbs[:40]
 
 testVerbs = verbs[41:50]
 
-Pronouns = [('I', 0), ('We', 1), ('It', 0), ('They', 1)]
-
 trainSubjs = [('Person', 0), ('People', 1), ('Man', 0), ('Men', 1),
     ('Woman', 0), ('Women', 1), ("Linguist", 0), ("Linguists", 1), \
     ('Goose', 0), ('Geese', 1), ('Mouse', 0), ('Mice', 1), ('Ox', 0), \
