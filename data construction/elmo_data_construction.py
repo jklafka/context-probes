@@ -110,8 +110,8 @@ for testVerb in testVerbs:
 
 random.shuffle(train_sens)
 random.shuffle(test_sens)
-train_sens = train_sens[:40000]
-test_sens = test_sens[:10000]
+train_sens = train_sens[:4000]
+test_sens = test_sens[:1000]
 
 with open("data/elmo_train.csv", 'w') as csv_file:
      data_writer = csv.writer(csv_file, delimiter = ',')
