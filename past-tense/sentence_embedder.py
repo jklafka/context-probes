@@ -8,19 +8,19 @@ import argparse
 #512-dimensional sentence embeddings
 embed = hub.Module("https://tfhub.dev/google/universal-sentence-encoder/2")
 
-parser = argparse.ArgumentParser()
-parser.add_argument("data")
-parser.add_argument("output")
-args = parser.parse_args()
-dataname = args.data
-output_filename = args.output
+# parser = argparse.ArgumentParser()
+# parser.add_argument("data")
+# parser.add_argument("output")
+# args = parser.parse_args()
+# dataname = args.data
+# output_filename = args.output
 
-sentences = []
+labels = []
 messages = []
-with open("data/" + dataname, 'r') as simple_data:
+with open("../data/elmo_test.csv", 'r') as simple_data:
     csv_reader = csv.reader(simple_data)
     for row in csv_reader:
-        sentences.append((row[0], row[1]))
+        labels.append(row[1])
         messages.append(row[0])
 
 # Reduce logging output.
@@ -30,7 +30,7 @@ with tf.Session() as session:
   session.run([tf.global_variables_initializer(), tf.tables_initializer()])
   message_embeddings = session.run(embed(messages))
 
-  with open("data/" + output_filename, 'w') as dataset:
+  with open("../data/sen_sen_test.csv", 'w') as dataset:
       csv_writer = csv.writer(dataset, delimiter = ',')
       for i, message_embedding in enumerate(np.array(message_embeddings).tolist()):
-          csv_writer.writerow(message_embedding + [sentences[i][1]])
+          csv_writer.writerow(message_embedding + [labels[i]])
