@@ -1,0 +1,1297 @@
+,0,1,2
+0,The Dog donated the Cats,0,1
+1,The Friend was illustrated by the Saviors,1,1
+2,The Doctors was delivered by the Dog,0,0
+3,The Dogs illustrated the Cat,1,1
+4,The Birds addressed the Dog,1,1
+5,The Bird demonstrated the Saviors,0,1
+6,The Dogs was recited by the Friend,0,0
+7,The Dogs was delivered by the Doctor,0,0
+8,The Cats was contributed by the Doctor,0,0
+9,The Birds contributed the Doctor,1,0
+10,The Saviors recited the Friend,1,0
+11,The Doctor donated the Birds,0,0
+12,The Savior recited the Friends,0,0
+13,The Friends conveyed the Cat,1,0
+14,The Cat demonstrated the Cats,0,1
+15,The Birds was donated by the Cat,0,0
+16,The Cats illustrated the Doctor,1,0
+17,The Friend was demonstrated by the Friends,1,0
+18,The Friend recited the Cats,0,0
+19,The Friend recited the Dogs,0,0
+20,The Doctors was conveyed by the Cat,0,1
+21,The Dogs was donated by the Doctor,0,0
+22,The Cats explained the Cat,1,1
+23,The Cat demonstrated the Birds,0,1
+24,The Birds donated the Doctor,1,0
+25,The Saviors was demonstrated by the Doctor,0,1
+26,The Doctors explained the Cat,1,1
+27,The Saviors was donated by the Savior,0,1
+28,The Doctors addressed the Savior,1,1
+29,The Dog demonstrated the Birds,0,1
+30,The Doctors was conveyed by the Savior,0,1
+31,The Dog was explained by the Friends,1,0
+32,The Doctor demonstrated the Dogs,0,1
+33,The Doctor addressed the Friends,0,0
+34,The Dog was delivered by the Cats,1,0
+35,The Doctors was donated by the Cat,0,1
+36,The Doctors was demonstrated by the Bird,0,1
+37,The Birds was addressed by the Savior,0,1
+38,The Dogs addressed the Dog,1,1
+39,The Cats was illustrated by the Doctor,0,0
+40,The Dog was illustrated by the Doctors,1,0
+41,The Friend conveyed the Dogs,0,0
+42,The Cats delivered the Doctor,1,0
+43,The Dog was donated by the Cats,1,0
+44,The Birds was demonstrated by the Doctor,0,0
+45,The Savior conveyed the Doctors,0,1
+46,The Cat was demonstrated by the Doctors,1,1
+47,The Dog addressed the Dogs,0,1
+48,The Doctor was explained by the Cats,1,0
+49,The Saviors demonstrated the Savior,1,1
+50,The Friends addressed the Cat,1,1
+51,The Saviors was explained by the Cat,0,1
+52,The Dog explained the Cats,0,1
+53,The Cat was contributed by the Doctors,1,0
+54,The Saviors was explained by the Dog,0,1
+55,The Friends delivered the Doctor,1,0
+56,The Saviors addressed the Friend,1,1
+57,The Dog was addressed by the Saviors,1,1
+58,The Birds contributed the Bird,1,0
+59,The Friend conveyed the Saviors,0,1
+60,The Bird conveyed the Dogs,0,0
+61,The Friend was explained by the Friends,1,0
+62,The Dog contributed the Friends,0,0
+63,The Savior illustrated the Saviors,0,1
+64,The Birds was donated by the Friend,0,0
+65,The Savior was addressed by the Dogs,1,1
+66,The Saviors was addressed by the Doctor,0,1
+67,The Bird illustrated the Birds,0,0
+68,The Dogs was recited by the Cat,0,0
+69,The Friend was illustrated by the Birds,1,0
+70,The Birds explained the Doctor,1,0
+71,The Friends was addressed by the Cat,0,0
+72,The Saviors delivered the Savior,1,1
+73,The Savior addressed the Friends,0,1
+74,The Dog was addressed by the Birds,1,0
+75,The Savior conveyed the Friends,0,0
+76,The Friend demonstrated the Saviors,0,1
+77,The Cats demonstrated the Savior,1,1
+78,The Cats demonstrated the Bird,1,0
+79,The Doctor was illustrated by the Friends,1,0
+80,The Cats was recited by the Dog,0,0
+81,The Doctors was recited by the Dog,0,0
+82,The Friend was demonstrated by the Dogs,1,1
+83,The Savior was addressed by the Friends,1,0
+84,The Doctor was conveyed by the Birds,1,0
+85,The Savior donated the Birds,0,1
+86,The Doctor was donated by the Birds,1,0
+87,The Saviors recited the Doctor,1,0
+88,The Cats was delivered by the Bird,0,0
+89,The Saviors was conveyed by the Doctor,0,1
+90,The Doctor was conveyed by the Doctors,1,0
+91,The Friends was donated by the Friend,0,0
+92,The Friends was demonstrated by the Cat,0,0
+93,The Friends recited the Doctor,1,0
+94,The Cats was delivered by the Dog,0,0
+95,The Cat demonstrated the Saviors,0,1
+96,The Savior was addressed by the Birds,1,1
+97,The Saviors was addressed by the Savior,0,1
+98,The Savior illustrated the Cats,0,1
+99,The Cats was donated by the Savior,0,1
+100,The Bird conveyed the Friends,0,0
+101,The Doctor contributed the Dogs,0,0
+102,The Friends was recited by the Friend,0,0
+103,The Savior illustrated the Birds,0,1
+104,The Savior was delivered by the Dogs,1,1
+105,The Friends delivered the Friend,1,0
+106,The Cat recited the Friends,0,0
+107,The Friends donated the Dog,1,0
+108,The Bird contributed the Doctors,0,0
+109,The Dog delivered the Doctors,0,0
+110,The Bird contributed the Saviors,0,0
+111,The Saviors conveyed the Bird,1,1
+112,The Saviors delivered the Bird,1,0
+113,The Friend was recited by the Doctors,1,0
+114,The Doctor conveyed the Cats,0,1
+115,The Friends contributed the Dog,1,0
+116,The Dog was delivered by the Doctors,1,0
+117,The Dog conveyed the Birds,0,0
+118,The Cat demonstrated the Dogs,0,1
+119,The Cat was demonstrated by the Saviors,1,1
+120,The Dog donated the Dogs,0,1
+121,The Friend was addressed by the Birds,1,0
+122,The Cat recited the Saviors,0,1
+123,The Dogs conveyed the Savior,1,1
+124,The Dogs was illustrated by the Cat,0,0
+125,The Savior was explained by the Doctors,1,1
+126,The Savior illustrated the Friends,0,0
+127,The Dog was explained by the Saviors,1,1
+128,The Bird was addressed by the Birds,1,0
+129,The Savior was conveyed by the Birds,1,0
+130,The Doctors was demonstrated by the Savior,0,1
+131,The Friends was explained by the Savior,0,0
+132,The Bird was explained by the Saviors,1,0
+133,The Dogs was addressed by the Savior,0,1
+134,The Doctors was illustrated by the Doctor,0,0
+135,The Savior demonstrated the Birds,0,1
+136,The Doctors was addressed by the Doctor,0,0
+137,The Savior explained the Dogs,0,1
+138,The Birds demonstrated the Dog,1,1
+139,The Dog conveyed the Dogs,0,1
+140,The Bird was donated by the Saviors,1,0
+141,The Cat contributed the Birds,0,0
+142,The Dog was recited by the Dogs,1,0
+143,The Bird donated the Saviors,0,1
+144,The Cats contributed the Doctor,1,0
+145,The Friend was donated by the Friends,1,0
+146,The Friends recited the Bird,1,0
+147,The Cats delivered the Dog,1,0
+148,The Bird was contributed by the Doctors,1,0
+149,The Doctors was contributed by the Bird,0,0
+150,The Savior demonstrated the Dogs,0,1
+151,The Savior was recited by the Cats,1,0
+152,The Friends illustrated the Cat,1,0
+153,The Friends contributed the Cat,1,0
+154,The Doctor recited the Cats,0,0
+155,The Saviors donated the Friend,1,0
+156,The Cats was conveyed by the Savior,0,1
+157,The Friend explained the Dogs,0,0
+158,The Saviors illustrated the Savior,1,1
+159,The Doctor was delivered by the Birds,1,0
+160,The Friend was explained by the Cats,1,0
+161,The Doctor was recited by the Friends,1,0
+162,The Cat contributed the Friends,0,0
+163,The Birds was delivered by the Bird,0,0
+164,The Birds was demonstrated by the Bird,0,0
+165,The Saviors conveyed the Savior,1,1
+166,The Savior contributed the Saviors,0,1
+167,The Bird was recited by the Cats,1,0
+168,The Doctor was conveyed by the Saviors,1,1
+169,The Birds was contributed by the Savior,0,0
+170,The Friends was demonstrated by the Savior,0,1
+171,The Dogs was contributed by the Dog,0,0
+172,The Doctors recited the Cat,1,0
+173,The Dog recited the Dogs,0,0
+174,The Friend was delivered by the Doctors,1,0
+175,The Friend was donated by the Birds,1,0
+176,The Friends demonstrated the Dog,1,1
+177,The Cats explained the Friend,1,0
+178,The Birds was explained by the Doctor,0,0
+179,The Doctor was explained by the Doctors,1,0
+180,The Dog illustrated the Friends,0,0
+181,The Dog was contributed by the Friends,1,0
+182,The Dogs was conveyed by the Cat,0,1
+183,The Cat was explained by the Friends,1,0
+184,The Saviors explained the Cat,1,1
+185,The Cats was delivered by the Friend,0,0
+186,The Cats contributed the Savior,1,1
+187,The Birds was recited by the Friend,0,0
+188,The Dog was delivered by the Saviors,1,1
+189,The Doctors was delivered by the Bird,0,0
+190,The Savior recited the Birds,0,0
+191,The Cat was donated by the Doctors,1,1
+192,The Dogs delivered the Dog,1,0
+193,The Bird was addressed by the Friends,1,0
+194,The Birds was contributed by the Friend,0,0
+195,The Birds conveyed the Dog,1,0
+196,The Bird was addressed by the Doctors,1,0
+197,The Saviors recited the Cat,1,1
+198,The Friends was recited by the Dog,0,0
+199,The Doctor was demonstrated by the Doctors,1,1
+200,The Bird conveyed the Doctors,0,0
+201,The Saviors was recited by the Doctor,0,0
+202,The Bird explained the Cats,0,0
+203,The Cat addressed the Cats,0,1
+204,The Birds donated the Cat,1,0
+205,The Dog was donated by the Doctors,1,0
+206,The Birds conveyed the Cat,1,0
+207,The Friends addressed the Bird,1,0
+208,The Doctor recited the Dogs,0,0
+209,The Friends conveyed the Friend,1,0
+210,The Cats was contributed by the Cat,0,0
+211,The Saviors was donated by the Bird,0,0
+212,The Cat explained the Dogs,0,1
+213,The Dog was addressed by the Cats,1,1
+214,The Doctors contributed the Savior,1,0
+215,The Bird was recited by the Friends,1,0
+216,The Cats addressed the Bird,1,1
+217,The Bird explained the Friends,0,0
+218,The Cat addressed the Doctors,0,1
+219,The Friends demonstrated the Doctor,1,0
+220,The Doctor was donated by the Friends,1,0
+221,The Birds addressed the Doctor,1,1
+222,The Cats illustrated the Bird,1,0
+223,The Cat was delivered by the Friends,1,0
+224,The Friends illustrated the Doctor,1,0
+225,The Bird recited the Birds,0,0
+226,The Doctor was contributed by the Doctors,1,0
+227,The Savior recited the Cats,0,0
+228,The Dog addressed the Doctors,0,1
+229,The Savior donated the Friends,0,0
+230,The Friend was conveyed by the Friends,1,0
+231,The Dog illustrated the Dogs,0,0
+232,The Doctor demonstrated the Friends,0,0
+233,The Saviors was delivered by the Cat,0,1
+234,The Friends was addressed by the Dog,0,0
+235,The Dog donated the Saviors,0,1
+236,The Savior was delivered by the Cats,1,1
+237,The Dog was addressed by the Friends,1,0
+238,The Cats addressed the Doctor,1,1
+239,The Cats illustrated the Savior,1,1
+240,The Savior was illustrated by the Friends,1,0
+241,The Cat was donated by the Birds,1,0
+242,The Dogs contributed the Doctor,1,0
+243,The Dog illustrated the Doctors,0,1
+244,The Friends delivered the Bird,1,0
+245,The Birds explained the Bird,1,0
+246,The Savior donated the Doctors,0,1
+247,The Dogs donated the Dog,1,1
+248,The Dogs addressed the Cat,1,1
+249,The Friend was recited by the Birds,1,0
+250,The Doctor addressed the Saviors,0,1
+251,The Birds demonstrated the Friend,1,0
+252,The Doctors was addressed by the Savior,0,1
+253,The Doctors was explained by the Doctor,0,0
+254,The Birds delivered the Bird,1,0
+255,The Friend illustrated the Dogs,0,0
+256,The Friends conveyed the Dog,1,0
+257,The Bird was conveyed by the Friends,1,0
+258,The Cat was delivered by the Cats,1,0
+259,The Bird was delivered by the Cats,1,0
+260,The Friend was donated by the Doctors,1,0
+261,The Bird explained the Saviors,0,0
+262,The Bird demonstrated the Birds,0,0
+263,The Friend contributed the Saviors,0,0
+264,The Birds was illustrated by the Cat,0,0
+265,The Dog conveyed the Doctors,0,1
+266,The Cats was delivered by the Cat,0,0
+267,The Birds contributed the Friend,1,0
+268,The Dogs illustrated the Friend,1,0
+269,The Dogs explained the Friend,1,0
+270,The Doctors recited the Dog,1,0
+271,The Doctors was contributed by the Friend,0,0
+272,The Savior was delivered by the Birds,1,0
+273,The Bird donated the Doctors,0,0
+274,The Cats was demonstrated by the Savior,0,1
+275,The Savior was illustrated by the Saviors,1,1
+276,The Cat was conveyed by the Cats,1,0
+277,The Dogs demonstrated the Doctor,1,1
+278,The Cat illustrated the Friends,0,0
+279,The Cat recited the Dogs,0,0
+280,The Friend was recited by the Friends,1,0
+281,The Doctors contributed the Dog,1,0
+282,The Cat explained the Cats,0,1
+283,The Saviors was donated by the Doctor,0,1
+284,The Friend contributed the Birds,0,0
+285,The Savior delivered the Saviors,0,1
+286,The Savior conveyed the Dogs,0,1
+287,The Bird demonstrated the Friends,0,0
+288,The Birds delivered the Friend,1,0
+289,The Dogs was explained by the Friend,0,0
+290,The Friends was conveyed by the Cat,0,0
+291,The Dogs was conveyed by the Friend,0,0
+292,The Birds was illustrated by the Savior,0,0
+293,The Savior was donated by the Doctors,1,1
+294,The Cats contributed the Dog,1,1
+295,The Bird was demonstrated by the Cats,1,0
+296,The Friend donated the Cats,0,0
+297,The Bird was delivered by the Saviors,1,0
+298,The Birds recited the Friend,1,0
+299,The Dogs illustrated the Savior,1,1
+300,The Saviors contributed the Savior,1,1
+301,The Cat illustrated the Birds,0,0
+302,The Doctor explained the Doctors,0,0
+303,The Doctors illustrated the Doctor,1,0
+304,The Saviors was donated by the Cat,0,1
+305,The Cats contributed the Bird,1,0
+306,The Savior was conveyed by the Friends,1,0
+307,The Bird conveyed the Cats,0,0
+308,The Dog explained the Birds,0,0
+309,The Friend was addressed by the Dogs,1,0
+310,The Cat was conveyed by the Saviors,1,1
+311,The Dog was demonstrated by the Doctors,1,1
+312,The Doctors contributed the Friend,1,0
+313,The Dog was demonstrated by the Saviors,1,1
+314,The Cat was addressed by the Saviors,1,1
+315,The Doctor explained the Cats,0,0
+316,The Cat contributed the Doctors,0,1
+317,The Dog was explained by the Cats,1,0
+318,The Cat was demonstrated by the Dogs,1,1
+319,The Bird was donated by the Doctors,1,0
+320,The Saviors was addressed by the Dog,0,1
+321,The Bird was delivered by the Doctors,1,0
+322,The Birds was addressed by the Friend,0,0
+323,The Savior was conveyed by the Dogs,1,1
+324,The Birds was conveyed by the Savior,0,0
+325,The Doctors was illustrated by the Friend,0,0
+326,The Saviors was contributed by the Friend,0,0
+327,The Saviors was delivered by the Savior,0,1
+328,The Birds was contributed by the Dog,0,0
+329,The Cats illustrated the Cat,1,1
+330,The Friend was demonstrated by the Doctors,1,0
+331,The Dog contributed the Dogs,0,1
+332,The Saviors was contributed by the Dog,0,1
+333,The Cats was addressed by the Dog,0,1
+334,The Doctors donated the Doctor,1,0
+335,The Birds demonstrated the Savior,1,1
+336,The Friends was donated by the Dog,0,0
+337,The Dogs conveyed the Bird,1,0
+338,The Friend conveyed the Birds,0,0
+339,The Birds donated the Friend,1,0
+340,The Doctors demonstrated the Dog,1,1
+341,The Birds illustrated the Cat,1,0
+342,The Saviors donated the Doctor,1,1
+343,The Friend demonstrated the Birds,0,0
+344,The Friend addressed the Dogs,0,1
+345,The Dog was conveyed by the Saviors,1,1
+346,The Savior was explained by the Saviors,1,1
+347,The Bird was donated by the Friends,1,0
+348,The Friend contributed the Dogs,0,0
+349,The Doctors was conveyed by the Doctor,0,0
+350,The Birds was conveyed by the Friend,0,0
+351,The Savior illustrated the Dogs,0,1
+352,The Doctors recited the Savior,1,1
+353,The Friends was demonstrated by the Dog,0,0
+354,The Dog delivered the Cats,0,0
+355,The Dog was demonstrated by the Dogs,1,1
+356,The Dog was demonstrated by the Birds,1,0
+357,The Saviors demonstrated the Cat,1,1
+358,The Dogs was contributed by the Doctor,0,0
+359,The Doctor addressed the Birds,0,1
+360,The Doctor was recited by the Cats,1,0
+361,The Dog demonstrated the Doctors,0,1
+362,The Doctors was explained by the Savior,0,1
+363,The Cats addressed the Cat,1,1
+364,The Savior was contributed by the Friends,1,0
+365,The Saviors was demonstrated by the Dog,0,1
+366,The Cat conveyed the Dogs,0,1
+367,The Friend was explained by the Birds,1,0
+368,The Bird delivered the Saviors,0,0
+369,The Dogs was recited by the Bird,0,0
+370,The Friend illustrated the Saviors,0,1
+371,The Dog illustrated the Birds,0,0
+372,The Friends was illustrated by the Cat,0,0
+373,The Friend recited the Friends,0,0
+374,The Friends was donated by the Bird,0,0
+375,The Friend delivered the Cats,0,0
+376,The Dog was explained by the Doctors,1,0
+377,The Saviors was addressed by the Bird,0,1
+378,The Saviors was delivered by the Friend,0,0
+379,The Saviors addressed the Savior,1,1
+380,The Cats explained the Bird,1,0
+381,The Friends was contributed by the Friend,0,0
+382,The Savior was donated by the Friends,1,0
+383,The Friends donated the Cat,1,0
+384,The Savior explained the Saviors,0,1
+385,The Birds was delivered by the Dog,0,0
+386,The Friends was illustrated by the Bird,0,0
+387,The Doctor was donated by the Cats,1,0
+388,The Doctor was delivered by the Cats,1,0
+389,The Doctor delivered the Birds,0,0
+390,The Friends was contributed by the Bird,0,0
+391,The Dogs was delivered by the Bird,0,0
+392,The Saviors recited the Dog,1,1
+393,The Dogs recited the Dog,1,0
+394,The Savior was illustrated by the Dogs,1,0
+395,The Doctor donated the Saviors,0,1
+396,The Bird recited the Doctors,0,0
+397,The Cat conveyed the Cats,0,1
+398,The Bird was illustrated by the Cats,1,0
+399,The Dogs addressed the Savior,1,1
+400,The Friends was illustrated by the Dog,0,0
+401,The Savior was addressed by the Doctors,1,1
+402,The Savior conveyed the Saviors,0,1
+403,The Dog delivered the Saviors,0,1
+404,The Doctors addressed the Dog,1,1
+405,The Saviors was addressed by the Friend,0,1
+406,The Dogs donated the Friend,1,0
+407,The Cat was addressed by the Cats,1,0
+408,The Bird was explained by the Cats,1,0
+409,The Friends was addressed by the Savior,0,0
+410,The Bird was delivered by the Friends,1,0
+411,The Friend was delivered by the Friends,1,0
+412,The Dogs was addressed by the Dog,0,1
+413,The Cat recited the Doctors,0,0
+414,The Friends explained the Friend,1,0
+415,The Friend contributed the Doctors,0,0
+416,The Friend was delivered by the Dogs,1,0
+417,The Doctor was addressed by the Birds,1,0
+418,The Friend was conveyed by the Doctors,1,0
+419,The Cat delivered the Dogs,0,1
+420,The Savior was contributed by the Doctors,1,0
+421,The Doctors donated the Bird,1,0
+422,The Friends was demonstrated by the Bird,0,0
+423,The Bird was contributed by the Cats,1,0
+424,The Doctor was illustrated by the Birds,1,0
+425,The Dog contributed the Cats,0,1
+426,The Dogs was conveyed by the Bird,0,0
+427,The Doctor was contributed by the Cats,1,0
+428,The Cats explained the Savior,1,1
+429,The Dog was conveyed by the Dogs,1,1
+430,The Friend was demonstrated by the Birds,1,0
+431,The Friend was demonstrated by the Saviors,1,1
+432,The Friend addressed the Saviors,0,1
+433,The Saviors illustrated the Dog,1,1
+434,The Birds was demonstrated by the Friend,0,0
+435,The Doctors explained the Friend,1,0
+436,The Saviors contributed the Doctor,1,0
+437,The Birds demonstrated the Bird,1,0
+438,The Doctor was demonstrated by the Cats,1,0
+439,The Dog recited the Cats,0,0
+440,The Saviors was conveyed by the Bird,0,0
+441,The Doctors donated the Savior,1,1
+442,The Birds was contributed by the Doctor,0,0
+443,The Doctor illustrated the Doctors,0,0
+444,The Bird was illustrated by the Dogs,1,0
+445,The Doctors was recited by the Doctor,0,0
+446,The Friends was addressed by the Friend,0,0
+447,The Doctor addressed the Dogs,0,1
+448,The Cats was explained by the Savior,0,1
+449,The Doctor was addressed by the Saviors,1,1
+450,The Dog explained the Friends,0,0
+451,The Doctor was delivered by the Dogs,1,0
+452,The Birds contributed the Savior,1,0
+453,The Cat was explained by the Dogs,1,1
+454,The Friends was conveyed by the Savior,0,0
+455,The Dogs illustrated the Bird,1,0
+456,The Saviors donated the Savior,1,1
+457,The Savior was addressed by the Saviors,1,1
+458,The Dog was conveyed by the Doctors,1,1
+459,The Doctors was recited by the Friend,0,0
+460,The Dogs was illustrated by the Bird,0,0
+461,The Saviors was illustrated by the Cat,0,1
+462,The Dog donated the Birds,0,0
+463,The Cat donated the Doctors,0,1
+464,The Cat delivered the Saviors,0,1
+465,The Friends delivered the Cat,1,0
+466,The Saviors contributed the Bird,1,0
+467,The Friend contributed the Cats,0,0
+468,The Friend addressed the Birds,0,0
+469,The Savior contributed the Birds,0,0
+470,The Cat was contributed by the Birds,1,0
+471,The Doctor was demonstrated by the Birds,1,0
+472,The Cats donated the Bird,1,0
+473,The Bird recited the Dogs,0,0
+474,The Dog was donated by the Birds,1,0
+475,The Saviors conveyed the Friend,1,1
+476,The Doctor conveyed the Doctors,0,1
+477,The Cat was conveyed by the Doctors,1,1
+478,The Savior was donated by the Dogs,1,1
+479,The Doctor recited the Friends,0,0
+480,The Saviors was donated by the Friend,0,0
+481,The Dogs was donated by the Cat,0,1
+482,The Dog recited the Friends,0,0
+483,The Cats was demonstrated by the Bird,0,0
+484,The Cat was addressed by the Friends,1,0
+485,The Friends explained the Bird,1,0
+486,The Doctor conveyed the Birds,0,0
+487,The Bird was addressed by the Saviors,1,1
+488,The Doctor delivered the Doctors,0,0
+489,The Cat was addressed by the Doctors,1,1
+490,The Dog illustrated the Cats,0,0
+491,The Savior explained the Doctors,0,1
+492,The Saviors explained the Doctor,1,1
+493,The Cat was contributed by the Saviors,1,1
+494,The Friend delivered the Birds,0,0
+495,The Birds explained the Dog,1,0
+496,The Cats was conveyed by the Doctor,0,0
+497,The Doctors recited the Friend,1,0
+498,The Cats conveyed the Dog,1,1
+499,The Cats conveyed the Savior,1,1
+500,The Friend was conveyed by the Cats,1,0
+501,The Cats was illustrated by the Bird,0,0
+502,The Friend was explained by the Dogs,1,0
+503,The Cats was contributed by the Friend,0,0
+504,The Savior delivered the Birds,0,1
+505,The Dogs delivered the Doctor,1,0
+506,The Friend donated the Dogs,0,0
+507,The Dogs was demonstrated by the Bird,0,1
+508,The Dog was recited by the Friends,1,0
+509,The Doctor was donated by the Doctors,1,0
+510,The Dogs delivered the Bird,1,0
+511,The Dog was explained by the Birds,1,0
+512,The Doctors was addressed by the Friend,0,0
+513,The Dogs contributed the Friend,1,0
+514,The Bird explained the Dogs,0,0
+515,The Cat illustrated the Saviors,0,1
+516,The Birds was delivered by the Doctor,0,0
+517,The Friend was contributed by the Dogs,1,0
+518,The Cats conveyed the Doctor,1,1
+519,The Doctors demonstrated the Doctor,1,1
+520,The Saviors explained the Dog,1,1
+521,The Birds delivered the Savior,1,1
+522,The Doctor was illustrated by the Cats,1,0
+523,The Cats was addressed by the Doctor,0,0
+524,The Cats donated the Dog,1,1
+525,The Cat conveyed the Doctors,0,1
+526,The Friends was recited by the Doctor,0,0
+527,The Savior was contributed by the Saviors,1,1
+528,The Bird was donated by the Dogs,1,0
+529,The Doctors donated the Dog,1,1
+530,The Savior was explained by the Birds,1,0
+531,The Doctors was illustrated by the Savior,0,1
+532,The Bird was explained by the Doctors,1,0
+533,The Doctor demonstrated the Saviors,0,1
+534,The Cat was donated by the Friends,1,0
+535,The Cat was delivered by the Doctors,1,0
+536,The Friends addressed the Savior,1,1
+537,The Bird was delivered by the Birds,1,0
+538,The Savior addressed the Dogs,0,1
+539,The Friends was explained by the Friend,0,0
+540,The Savior addressed the Cats,0,1
+541,The Cats was conveyed by the Dog,0,1
+542,The Birds conveyed the Friend,1,0
+543,The Cats delivered the Savior,1,1
+544,The Cat was addressed by the Birds,1,0
+545,The Dog contributed the Saviors,0,1
+546,The Birds delivered the Dog,1,0
+547,The Friend delivered the Saviors,0,0
+548,The Birds donated the Bird,1,0
+549,The Friend was contributed by the Birds,1,0
+550,The Birds was demonstrated by the Savior,0,1
+551,The Dogs was explained by the Doctor,0,0
+552,The Friend was delivered by the Birds,1,0
+553,The Doctors demonstrated the Friend,1,1
+554,The Friend conveyed the Cats,0,0
+555,The Friends recited the Friend,1,0
+556,The Friend was conveyed by the Birds,1,0
+557,The Savior was illustrated by the Doctors,1,1
+558,The Dog explained the Doctors,0,1
+559,The Dogs addressed the Doctor,1,1
+560,The Bird was donated by the Birds,1,0
+561,The Doctors contributed the Cat,1,1
+562,The Dog explained the Saviors,0,1
+563,The Friends was delivered by the Dog,0,0
+564,The Dog recited the Saviors,0,1
+565,The Doctors was addressed by the Bird,0,0
+566,The Cats was conveyed by the Friend,0,0
+567,The Saviors contributed the Friend,1,0
+568,The Friend explained the Saviors,0,1
+569,The Doctors addressed the Cat,1,1
+570,The Dogs explained the Savior,1,1
+571,The Dog donated the Friends,0,0
+572,The Bird was delivered by the Dogs,1,0
+573,The Bird addressed the Saviors,0,1
+574,The Cat was conveyed by the Dogs,1,1
+575,The Friends explained the Dog,1,0
+576,The Doctors was delivered by the Doctor,0,0
+577,The Birds explained the Savior,1,1
+578,The Birds was donated by the Savior,0,0
+579,The Friends was recited by the Savior,0,0
+580,The Dog was conveyed by the Cats,1,1
+581,The Friends recited the Cat,1,0
+582,The Friend was addressed by the Doctors,1,0
+583,The Doctor demonstrated the Birds,0,0
+584,The Cat was explained by the Birds,1,0
+585,The Doctors demonstrated the Cat,1,1
+586,The Doctor delivered the Friends,0,0
+587,The Saviors donated the Dog,1,1
+588,The Birds conveyed the Doctor,1,0
+589,The Saviors was illustrated by the Savior,0,1
+590,The Saviors illustrated the Cat,1,1
+591,The Friend was conveyed by the Dogs,1,0
+592,The Birds delivered the Cat,1,0
+593,The Friends was delivered by the Cat,0,0
+594,The Saviors was recited by the Dog,0,0
+595,The Friend donated the Birds,0,0
+596,The Dog was contributed by the Dogs,1,0
+597,The Cats was donated by the Doctor,0,0
+598,The Cats was donated by the Bird,0,0
+599,The Birds was illustrated by the Friend,0,0
+600,The Cat was contributed by the Friends,1,0
+601,The Bird illustrated the Dogs,0,0
+602,The Dogs was illustrated by the Dog,0,0
+603,The Doctor conveyed the Friends,0,0
+604,The Dog was conveyed by the Birds,1,0
+605,The Doctors recited the Doctor,1,0
+606,The Bird demonstrated the Doctors,0,1
+607,The Bird was contributed by the Dogs,1,0
+608,The Doctor was demonstrated by the Friends,1,0
+609,The Friends was demonstrated by the Friend,0,0
+610,The Dogs was donated by the Bird,0,0
+611,The Cats was contributed by the Savior,0,1
+612,The Savior illustrated the Doctors,0,1
+613,The Saviors explained the Friend,1,1
+614,The Birds was conveyed by the Dog,0,0
+615,The Dog illustrated the Saviors,0,1
+616,The Cats was donated by the Friend,0,0
+617,The Cats was addressed by the Cat,0,0
+618,The Doctor contributed the Doctors,0,0
+619,The Dogs addressed the Friend,1,1
+620,The Dogs was explained by the Bird,0,0
+621,The Cats delivered the Friend,1,0
+622,The Dog was delivered by the Dogs,1,0
+623,The Doctor was conveyed by the Cats,1,0
+624,The Saviors was illustrated by the Friend,0,1
+625,The Birds illustrated the Doctor,1,0
+626,The Friends was illustrated by the Savior,0,0
+627,The Saviors was demonstrated by the Cat,0,1
+628,The Doctors was demonstrated by the Dog,0,1
+629,The Saviors explained the Bird,1,0
+630,The Dogs was conveyed by the Savior,0,1
+631,The Friends was donated by the Doctor,0,0
+632,The Birds was donated by the Doctor,0,0
+633,The Bird addressed the Friends,0,0
+634,The Friend donated the Friends,0,0
+635,The Dogs was addressed by the Friend,0,0
+636,The Savior was conveyed by the Saviors,1,1
+637,The Cat was demonstrated by the Birds,1,0
+638,The Friend was contributed by the Doctors,1,0
+639,The Dogs recited the Doctor,1,0
+640,The Doctor was recited by the Doctors,1,0
+641,The Savior was donated by the Cats,1,1
+642,The Cat was illustrated by the Dogs,1,0
+643,The Dog was donated by the Saviors,1,1
+644,The Dogs demonstrated the Friend,1,1
+645,The Cats was demonstrated by the Doctor,0,0
+646,The Cats was addressed by the Savior,0,1
+647,The Doctor was illustrated by the Doctors,1,0
+648,The Bird donated the Dogs,0,0
+649,The Dogs was recited by the Doctor,0,0
+650,The Doctor was demonstrated by the Saviors,1,1
+651,The Bird contributed the Dogs,0,0
+652,The Savior demonstrated the Friends,0,1
+653,The Savior conveyed the Cats,0,1
+654,The Dog was illustrated by the Saviors,1,1
+655,The Dogs explained the Cat,1,1
+656,The Friends conveyed the Doctor,1,0
+657,The Doctors was addressed by the Dog,0,1
+658,The Bird was illustrated by the Birds,1,0
+659,The Birds addressed the Bird,1,1
+660,The Friends demonstrated the Friend,1,0
+661,The Doctors delivered the Savior,1,1
+662,The Saviors illustrated the Doctor,1,1
+663,The Friends was demonstrated by the Doctor,0,0
+664,The Dog was contributed by the Doctors,1,0
+665,The Birds was recited by the Savior,0,0
+666,The Friend donated the Doctors,0,0
+667,The Bird was contributed by the Friends,1,0
+668,The Savior was recited by the Doctors,1,0
+669,The Bird was donated by the Cats,1,0
+670,The Bird was conveyed by the Doctors,1,0
+671,The Bird was demonstrated by the Birds,1,0
+672,The Bird contributed the Cats,0,0
+673,The Doctor recited the Birds,0,0
+674,The Cat demonstrated the Friends,0,1
+675,The Saviors donated the Cat,1,1
+676,The Cats was illustrated by the Dog,0,0
+677,The Savior was explained by the Friends,1,0
+678,The Cats addressed the Friend,1,0
+679,The Dogs contributed the Bird,1,0
+680,The Friend delivered the Dogs,0,0
+681,The Savior was recited by the Friends,1,0
+682,The Bird illustrated the Doctors,0,0
+683,The Bird was contributed by the Saviors,1,0
+684,The Bird was demonstrated by the Saviors,1,1
+685,The Friends demonstrated the Savior,1,1
+686,The Cat donated the Dogs,0,1
+687,The Dogs was explained by the Cat,0,1
+688,The Friends recited the Savior,1,0
+689,The Birds was addressed by the Dog,0,0
+690,The Doctors conveyed the Dog,1,1
+691,The Saviors contributed the Cat,1,1
+692,The Bird delivered the Doctors,0,0
+693,The Doctors illustrated the Savior,1,1
+694,The Friends was donated by the Savior,0,0
+695,The Dog donated the Doctors,0,1
+696,The Saviors was delivered by the Doctor,0,0
+697,The Bird addressed the Cats,0,1
+698,The Cats recited the Bird,1,0
+699,The Saviors was addressed by the Cat,0,1
+700,The Dog was delivered by the Birds,1,0
+701,The Cats was illustrated by the Cat,0,0
+702,The Bird was conveyed by the Birds,1,0
+703,The Cat was contributed by the Cats,1,0
+704,The Dogs illustrated the Dog,1,0
+705,The Saviors was demonstrated by the Savior,0,1
+706,The Friend was illustrated by the Friends,1,0
+707,The Bird recited the Saviors,0,0
+708,The Doctor was contributed by the Birds,1,0
+709,The Bird contributed the Friends,0,0
+710,The Friends was explained by the Doctor,0,0
+711,The Dog was demonstrated by the Friends,1,0
+712,The Doctors was illustrated by the Cat,0,0
+713,The Birds was delivered by the Friend,0,0
+714,The Doctors was contributed by the Doctor,0,0
+715,The Dogs was demonstrated by the Dog,0,1
+716,The Doctor illustrated the Birds,0,0
+717,The Birds was recited by the Doctor,0,0
+718,The Birds was addressed by the Doctor,0,0
+719,The Savior conveyed the Birds,0,1
+720,The Doctors donated the Friend,1,0
+721,The Bird addressed the Dogs,0,1
+722,The Friends was contributed by the Doctor,0,0
+723,The Savior was delivered by the Doctors,1,1
+724,The Dogs illustrated the Doctor,1,0
+725,The Cat was illustrated by the Friends,1,0
+726,The Friends explained the Doctor,1,0
+727,The Friend demonstrated the Dogs,0,1
+728,The Doctors was delivered by the Savior,0,1
+729,The Dog was contributed by the Saviors,1,1
+730,The Cats was explained by the Bird,0,0
+731,The Dog demonstrated the Dogs,0,1
+732,The Cats was recited by the Savior,0,0
+733,The Dogs explained the Bird,1,0
+734,The Cats was demonstrated by the Dog,0,1
+735,The Doctor donated the Doctors,0,0
+736,The Birds was illustrated by the Dog,0,0
+737,The Savior was donated by the Birds,1,0
+738,The Dog was recited by the Cats,1,0
+739,The Cat recited the Cats,0,0
+740,The Birds recited the Dog,1,0
+741,The Saviors was conveyed by the Friend,0,1
+742,The Doctors demonstrated the Bird,1,1
+743,The Dogs contributed the Dog,1,1
+744,The Savior contributed the Friends,0,0
+745,The Dogs was explained by the Savior,0,1
+746,The Bird delivered the Birds,0,0
+747,The Friend conveyed the Friends,0,0
+748,The Doctor explained the Birds,0,0
+749,The Friend explained the Cats,0,0
+750,The Savior recited the Saviors,0,1
+751,The Dogs was illustrated by the Friend,0,0
+752,The Dogs delivered the Friend,1,0
+753,The Doctors delivered the Friend,1,0
+754,The Cats delivered the Bird,1,0
+755,The Cat was explained by the Doctors,1,0
+756,The Dogs contributed the Cat,1,1
+757,The Doctor was demonstrated by the Dogs,1,1
+758,The Dogs conveyed the Friend,1,0
+759,The Bird was addressed by the Dogs,1,0
+760,The Doctors was donated by the Dog,0,0
+761,The Bird donated the Birds,0,0
+762,The Savior addressed the Birds,0,1
+763,The Friend illustrated the Birds,0,0
+764,The Friend was conveyed by the Saviors,1,1
+765,The Saviors contributed the Dog,1,1
+766,The Bird delivered the Cats,0,0
+767,The Bird demonstrated the Cats,0,0
+768,The Doctor demonstrated the Cats,0,1
+769,The Savior contributed the Dogs,0,1
+770,The Cat delivered the Friends,0,0
+771,The Dogs recited the Friend,1,0
+772,The Friends donated the Savior,1,0
+773,The Birds demonstrated the Doctor,1,0
+774,The Bird was recited by the Birds,1,0
+775,The Birds delivered the Doctor,1,0
+776,The Doctor recited the Doctors,0,0
+777,The Doctors was recited by the Bird,0,0
+778,The Dogs was illustrated by the Doctor,0,0
+779,The Dogs was explained by the Dog,0,1
+780,The Dog was demonstrated by the Cats,1,1
+781,The Doctor was donated by the Saviors,1,1
+782,The Doctors recited the Bird,1,0
+783,The Saviors was recited by the Savior,0,1
+784,The Dogs donated the Savior,1,1
+785,The Friends conveyed the Savior,1,0
+786,The Cats was explained by the Dog,0,0
+787,The Savior was recited by the Saviors,1,1
+788,The Doctors was conveyed by the Dog,0,1
+789,The Dogs was contributed by the Cat,0,0
+790,The Cat delivered the Doctors,0,1
+791,The Cat illustrated the Cats,0,1
+792,The Friend was illustrated by the Doctors,1,0
+793,The Savior delivered the Friends,0,0
+794,The Doctor was delivered by the Doctors,1,0
+795,The Friend was contributed by the Friends,1,0
+796,The Dogs donated the Doctor,1,1
+797,The Bird explained the Birds,0,0
+798,The Cat explained the Friends,0,0
+799,The Doctor was explained by the Friends,1,0
+800,The Cat donated the Birds,0,0
+801,The Doctors illustrated the Friend,1,0
+802,The Savior was conveyed by the Cats,1,1
+803,The Cat was illustrated by the Doctors,1,0
+804,The Cats was recited by the Friend,0,0
+805,The Savior was demonstrated by the Doctors,1,1
+806,The Doctors was conveyed by the Bird,0,0
+807,The Dogs was demonstrated by the Friend,0,1
+808,The Dogs was conveyed by the Doctor,0,0
+809,The Savior was explained by the Dogs,1,1
+810,The Birds recited the Cat,1,0
+811,The Doctor was addressed by the Dogs,1,1
+812,The Dogs delivered the Savior,1,1
+813,The Cats demonstrated the Dog,1,1
+814,The Birds demonstrated the Cat,1,1
+815,The Cats was demonstrated by the Cat,0,1
+816,The Dogs was delivered by the Dog,0,0
+817,The Saviors was conveyed by the Dog,0,1
+818,The Cat was addressed by the Dogs,1,1
+819,The Friends delivered the Savior,1,0
+820,The Cat was recited by the Cats,1,0
+821,The Saviors addressed the Dog,1,1
+822,The Cat explained the Birds,0,0
+823,The Doctor delivered the Saviors,0,1
+824,The Friends explained the Savior,1,0
+825,The Savior donated the Saviors,0,1
+826,The Doctors addressed the Doctor,1,1
+827,The Cats recited the Friend,1,0
+828,The Bird donated the Friends,0,0
+829,The Friends was recited by the Cat,0,0
+830,The Dog delivered the Birds,0,0
+831,The Friends was conveyed by the Friend,0,0
+832,The Birds was explained by the Bird,0,0
+833,The Dog addressed the Friends,0,1
+834,The Friend demonstrated the Friends,0,0
+835,The Friend was delivered by the Saviors,1,0
+836,The Doctor addressed the Cats,0,1
+837,The Savior contributed the Doctors,0,0
+838,The Cats was addressed by the Bird,0,0
+839,The Friend was demonstrated by the Cats,1,0
+840,The Friends illustrated the Dog,1,0
+841,The Doctor addressed the Doctors,0,1
+842,The Cat donated the Saviors,0,1
+843,The Friends illustrated the Savior,1,0
+844,The Savior was demonstrated by the Friends,1,1
+845,The Dog was recited by the Birds,1,0
+846,The Doctor was delivered by the Saviors,1,0
+847,The Cat donated the Cats,0,1
+848,The Doctor recited the Saviors,0,0
+849,The Doctors addressed the Friend,1,0
+850,The Saviors delivered the Dog,1,1
+851,The Doctor conveyed the Saviors,0,1
+852,The Friend explained the Doctors,0,0
+853,The Birds was conveyed by the Cat,0,0
+854,The Bird delivered the Dogs,0,0
+855,The Friends recited the Dog,1,0
+856,The Cat explained the Doctors,0,1
+857,The Birds was explained by the Savior,0,0
+858,The Doctors contributed the Doctor,1,0
+859,The Birds was recited by the Bird,0,0
+860,The Savior was conveyed by the Doctors,1,1
+861,The Saviors addressed the Doctor,1,1
+862,The Friends was recited by the Bird,0,0
+863,The Cat conveyed the Friends,0,0
+864,The Birds recited the Doctor,1,0
+865,The Dog was explained by the Dogs,1,1
+866,The Doctors was explained by the Bird,0,0
+867,The Saviors was explained by the Doctor,0,0
+868,The Dogs demonstrated the Dog,1,1
+869,The Bird explained the Doctors,0,0
+870,The Dog was contributed by the Birds,1,0
+871,The Saviors was conveyed by the Savior,0,1
+872,The Cats addressed the Savior,1,1
+873,The Doctors delivered the Doctor,1,0
+874,The Friends was conveyed by the Bird,0,0
+875,The Cats conveyed the Cat,1,1
+876,The Cats was conveyed by the Cat,0,0
+877,The Doctor donated the Dogs,0,1
+878,The Cats was demonstrated by the Friend,0,0
+879,The Cats demonstrated the Friend,1,1
+880,The Saviors demonstrated the Friend,1,1
+881,The Cats conveyed the Bird,1,0
+882,The Friend demonstrated the Doctors,0,1
+883,The Cat illustrated the Doctors,0,1
+884,The Dogs was addressed by the Bird,0,0
+885,The Dogs was recited by the Dog,0,0
+886,The Friends conveyed the Bird,1,0
+887,The Cat was recited by the Doctors,1,0
+888,The Friend was explained by the Doctors,1,0
+889,The Dogs was illustrated by the Savior,0,0
+890,The Doctors was donated by the Doctor,0,0
+891,The Doctors was recited by the Savior,0,0
+892,The Cats illustrated the Friend,1,0
+893,The Friends contributed the Bird,1,0
+894,The Dogs explained the Doctor,1,0
+895,The Cat was donated by the Dogs,1,1
+896,The Cat was delivered by the Saviors,1,1
+897,The Cats recited the Dog,1,0
+898,The Saviors addressed the Cat,1,1
+899,The Savior explained the Friends,0,0
+900,The Bird demonstrated the Dogs,0,1
+901,The Dogs was contributed by the Savior,0,1
+902,The Cats recited the Doctor,1,0
+903,The Cats was explained by the Doctor,0,0
+904,The Friends contributed the Doctor,1,0
+905,The Dog conveyed the Saviors,0,1
+906,The Saviors delivered the Doctor,1,1
+907,The Saviors was delivered by the Dog,0,1
+908,The Dog contributed the Doctors,0,0
+909,The Saviors recited the Bird,1,0
+910,The Doctors explained the Doctor,1,0
+911,The Birds was donated by the Dog,0,0
+912,The Savior was explained by the Cats,1,1
+913,The Bird addressed the Doctors,0,1
+914,The Bird illustrated the Cats,0,0
+915,The Savior was demonstrated by the Birds,1,1
+916,The Birds was donated by the Bird,0,0
+917,The Dogs delivered the Cat,1,1
+918,The Cats donated the Friend,1,0
+919,The Doctor conveyed the Dogs,0,1
+920,The Friend explained the Birds,0,0
+921,The Doctors delivered the Dog,1,0
+922,The Dogs was contributed by the Friend,0,0
+923,The Bird was conveyed by the Saviors,1,0
+924,The Doctors was demonstrated by the Cat,0,1
+925,The Birds was conveyed by the Doctor,0,0
+926,The Saviors donated the Bird,1,1
+927,The Doctor was explained by the Birds,1,0
+928,The Friend was donated by the Saviors,1,0
+929,The Doctors was illustrated by the Bird,0,0
+930,The Cat was explained by the Saviors,1,1
+931,The Bird was demonstrated by the Doctors,1,1
+932,The Friend illustrated the Doctors,0,0
+933,The Saviors illustrated the Bird,1,1
+934,The Savior was donated by the Saviors,1,1
+935,The Saviors was illustrated by the Dog,0,1
+936,The Savior was illustrated by the Birds,1,0
+937,The Friends donated the Friend,1,0
+938,The Doctor explained the Dogs,0,0
+939,The Savior was demonstrated by the Saviors,1,1
+940,The Cats was delivered by the Doctor,0,0
+941,The Savior was demonstrated by the Dogs,1,1
+942,The Savior was illustrated by the Cats,1,0
+943,The Dogs was conveyed by the Dog,0,1
+944,The Doctors was contributed by the Cat,0,0
+945,The Doctors illustrated the Cat,1,1
+946,The Birds conveyed the Bird,1,0
+947,The Birds recited the Savior,1,0
+948,The Dog was conveyed by the Friends,1,0
+949,The Bird was illustrated by the Saviors,1,0
+950,The Doctors was explained by the Cat,0,0
+951,The Dogs conveyed the Doctor,1,1
+952,The Dogs was addressed by the Cat,0,1
+953,The Savior donated the Cats,0,1
+954,The Doctor was illustrated by the Dogs,1,0
+955,The Friend addressed the Friends,0,0
+956,The Dogs was recited by the Savior,0,0
+957,The Savior demonstrated the Doctors,0,1
+958,The Bird was illustrated by the Doctors,1,0
+959,The Dog delivered the Dogs,0,0
+960,The Cat recited the Birds,0,0
+961,The Cat was demonstrated by the Friends,1,0
+962,The Dog was addressed by the Dogs,1,1
+963,The Cats was explained by the Friend,0,0
+964,The Dogs was demonstrated by the Savior,0,1
+965,The Doctors delivered the Bird,1,0
+966,The Friend demonstrated the Cats,0,1
+967,The Saviors demonstrated the Dog,1,1
+968,The Doctor was addressed by the Friends,1,0
+969,The Birds was illustrated by the Bird,0,0
+970,The Friend was recited by the Saviors,1,0
+971,The Doctors illustrated the Dog,1,1
+972,The Saviors was conveyed by the Cat,0,1
+973,The Birds was demonstrated by the Cat,0,0
+974,The Cat addressed the Friends,0,1
+975,The Birds was explained by the Friend,0,0
+976,The Doctor was conveyed by the Dogs,1,0
+977,The Friends addressed the Doctor,1,0
+978,The Friends was contributed by the Cat,0,0
+979,The Saviors was delivered by the Bird,0,0
+980,The Saviors illustrated the Friend,1,1
+981,The Bird contributed the Birds,0,0
+982,The Dogs addressed the Bird,1,1
+983,The Cat was recited by the Dogs,1,0
+984,The Friends explained the Cat,1,0
+985,The Cat contributed the Dogs,0,1
+986,The Cats donated the Doctor,1,0
+987,The Cats was recited by the Cat,0,0
+988,The Dogs was demonstrated by the Cat,0,1
+989,The Friends contributed the Savior,1,0
+990,The Birds explained the Friend,1,0
+991,The Birds was demonstrated by the Dog,0,0
+992,The Friend addressed the Cats,0,0
+993,The Doctors was delivered by the Friend,0,0
+994,The Saviors was contributed by the Savior,0,1
+995,The Savior delivered the Cats,0,1
+996,The Doctor delivered the Dogs,0,0
+997,The Birds was delivered by the Savior,0,0
+998,The Bird was demonstrated by the Dogs,1,1
+999,The Cat conveyed the Birds,0,0
+1000,The Friend delivered the Friends,0,0
+1001,The Saviors was explained by the Friend,0,0
+1002,The Savior was delivered by the Saviors,1,1
+1003,The Doctor illustrated the Friends,0,0
+1004,The Savior addressed the Doctors,0,1
+1005,The Friend conveyed the Doctors,0,0
+1006,The Savior was delivered by the Friends,1,0
+1007,The Doctor was contributed by the Friends,1,0
+1008,The Dogs recited the Cat,1,0
+1009,The Bird recited the Cats,0,0
+1010,The Cats demonstrated the Cat,1,1
+1011,The Cats conveyed the Friend,1,0
+1012,The Birds was conveyed by the Bird,0,0
+1013,The Doctor was illustrated by the Saviors,1,1
+1014,The Dogs donated the Bird,1,0
+1015,The Doctors was illustrated by the Dog,0,0
+1016,The Dog addressed the Saviors,0,1
+1017,The Dog addressed the Birds,0,1
+1018,The Doctors was donated by the Savior,0,1
+1019,The Cat was illustrated by the Birds,1,0
+1020,The Friends was delivered by the Friend,0,0
+1021,The Cat illustrated the Dogs,0,1
+1022,The Cat delivered the Cats,0,0
+1023,The Dogs was donated by the Savior,0,1
+1024,The Cat addressed the Birds,0,1
+1025,The Saviors was illustrated by the Doctor,0,1
+1026,The Doctor explained the Friends,0,0
+1027,The Friend was addressed by the Cats,1,0
+1028,The Cat donated the Friends,0,0
+1029,The Birds was illustrated by the Doctor,0,0
+1030,The Cat was recited by the Friends,1,0
+1031,The Cat was illustrated by the Saviors,1,1
+1032,The Doctor was addressed by the Doctors,1,0
+1033,The Birds was delivered by the Cat,0,0
+1034,The Birds illustrated the Dog,1,0
+1035,The Bird addressed the Birds,0,1
+1036,The Friend was contributed by the Saviors,1,0
+1037,The Dog contributed the Birds,0,0
+1038,The Dog was recited by the Saviors,1,0
+1039,The Doctors was delivered by the Cat,0,0
+1040,The Doctor was recited by the Birds,1,0
+1041,The Doctor donated the Cats,0,0
+1042,The Doctors explained the Dog,1,1
+1043,The Doctor was conveyed by the Friends,1,0
+1044,The Friends was illustrated by the Doctor,0,0
+1045,The Friends illustrated the Friend,1,0
+1046,The Cats was contributed by the Bird,0,0
+1047,The Friends donated the Bird,1,0
+1048,The Savior was contributed by the Birds,1,0
+1049,The Bird was recited by the Doctors,1,0
+1050,The Cats was contributed by the Dog,0,0
+1051,The Cat was explained by the Cats,1,0
+1052,The Dogs was addressed by the Doctor,0,1
+1053,The Saviors was recited by the Friend,0,0
+1054,The Birds was explained by the Dog,0,0
+1055,The Cats explained the Doctor,1,0
+1056,The Bird was recited by the Dogs,1,0
+1057,The Dog delivered the Friends,0,0
+1058,The Friends demonstrated the Cat,1,1
+1059,The Savior was recited by the Birds,1,0
+1060,The Dog demonstrated the Cats,0,1
+1061,The Cats was recited by the Doctor,0,0
+1062,The Cat explained the Saviors,0,1
+1063,The Saviors was illustrated by the Bird,0,0
+1064,The Friends was delivered by the Savior,0,0
+1065,The Bird was conveyed by the Cats,1,0
+1066,The Cat was conveyed by the Friends,1,0
+1067,The Friends was explained by the Bird,0,0
+1068,The Doctor contributed the Friends,0,0
+1069,The Doctors explained the Savior,1,1
+1070,The Friend donated the Saviors,0,0
+1071,The Bird was explained by the Dogs,1,0
+1072,The Dog was recited by the Doctors,1,0
+1073,The Cats was donated by the Cat,0,0
+1074,The Birds donated the Savior,1,1
+1075,The Savior demonstrated the Cats,0,1
+1076,The Savior donated the Dogs,0,1
+1077,The Birds was addressed by the Bird,0,0
+1078,The Dog was donated by the Friends,1,0
+1079,The Saviors was contributed by the Doctor,0,0
+1080,The Friends was delivered by the Bird,0,0
+1081,The Doctors was explained by the Friend,0,0
+1082,The Friend recited the Birds,0,0
+1083,The Savior explained the Cats,0,1
+1084,The Doctor was delivered by the Friends,1,0
+1085,The Doctor was contributed by the Saviors,1,0
+1086,The Birds addressed the Savior,1,1
+1087,The Doctors addressed the Bird,1,1
+1088,The Savior explained the Birds,0,1
+1089,The Saviors conveyed the Dog,1,1
+1090,The Dogs donated the Cat,1,1
+1091,The Doctors was contributed by the Dog,0,0
+1092,The Cats recited the Savior,1,0
+1093,The Saviors conveyed the Cat,1,1
+1094,The Friends was explained by the Cat,0,0
+1095,The Cat contributed the Saviors,0,1
+1096,The Doctors contributed the Bird,1,0
+1097,The Doctor was recited by the Saviors,1,0
+1098,The Friend delivered the Doctors,0,0
+1099,The Cat was conveyed by the Birds,1,0
+1100,The Friends contributed the Friend,1,0
+1101,The Doctors conveyed the Friend,1,0
+1102,The Savior was recited by the Dogs,1,0
+1103,The Cats contributed the Cat,1,1
+1104,The Saviors was explained by the Bird,0,0
+1105,The Doctor was explained by the Saviors,1,0
+1106,The Doctor contributed the Saviors,0,0
+1107,The Savior delivered the Dogs,0,1
+1108,The Doctor delivered the Cats,0,0
+1109,The Bird illustrated the Friends,0,0
+1110,The Dog was illustrated by the Dogs,1,0
+1111,The Savior was addressed by the Cats,1,1
+1112,The Cat addressed the Saviors,0,1
+1113,The Cats donated the Cat,1,1
+1114,The Dog recited the Doctors,0,0
+1115,The Doctors was donated by the Bird,0,0
+1116,The Cats was explained by the Cat,0,0
+1117,The Birds illustrated the Bird,1,0
+1118,The Friend was delivered by the Cats,1,0
+1119,The Cats was conveyed by the Bird,0,0
+1120,The Doctors conveyed the Savior,1,1
+1121,The Friends addressed the Friend,1,0
+1122,The Friends illustrated the Bird,1,0
+1123,The Doctor donated the Friends,0,0
+1124,The Friend was contributed by the Cats,1,0
+1125,The Cats addressed the Dog,1,1
+1126,The Savior recited the Doctors,0,1
+1127,The Bird conveyed the Birds,0,0
+1128,The Bird conveyed the Saviors,0,1
+1129,The Doctor explained the Saviors,0,1
+1130,The Saviors delivered the Friend,1,0
+1131,The Cats was addressed by the Friend,0,0
+1132,The Birds addressed the Friend,1,0
+1133,The Cats was illustrated by the Friend,0,0
+1134,The Friend was recited by the Dogs,1,0
+1135,The Friend was illustrated by the Cats,1,0
+1136,The Bird donated the Cats,0,0
+1137,The Cat was contributed by the Dogs,1,0
+1138,The Cat was recited by the Birds,1,0
+1139,The Dogs demonstrated the Savior,1,1
+1140,The Cats was delivered by the Savior,0,1
+1141,The Friends delivered the Dog,1,0
+1142,The Doctor illustrated the Dogs,0,0
+1143,The Friend addressed the Doctors,0,0
+1144,The Saviors addressed the Bird,1,1
+1145,The Doctor was recited by the Dogs,1,0
+1146,The Dogs was delivered by the Savior,0,1
+1147,The Bird was recited by the Saviors,1,0
+1148,The Dog conveyed the Friends,0,0
+1149,The Doctors donated the Cat,1,1
+1150,The Dog was delivered by the Friends,1,0
+1151,The Saviors delivered the Cat,1,1
+1152,The Friend illustrated the Friends,0,0
+1153,The Saviors explained the Savior,1,1
+1154,The Friends was addressed by the Doctor,0,0
+1155,The Dog recited the Birds,0,0
+1156,The Friend explained the Friends,0,0
+1157,The Bird was explained by the Friends,1,0
+1158,The Cat contributed the Cats,0,1
+1159,The Dog demonstrated the Friends,0,1
+1160,The Bird illustrated the Saviors,0,1
+1161,The Friends was contributed by the Savior,0,0
+1162,The Bird was demonstrated by the Friends,1,0
+1163,The Cats donated the Savior,1,1
+1164,The Saviors demonstrated the Doctor,1,1
+1165,The Friend illustrated the Cats,0,0
+1166,The Friends was donated by the Cat,0,0
+1167,The Birds was contributed by the Cat,0,0
+1168,The Doctors conveyed the Bird,1,0
+1169,The Dogs was donated by the Dog,0,1
+1170,The Savior addressed the Saviors,0,1
+1171,The Doctor illustrated the Cats,0,0
+1172,The Friends was delivered by the Doctor,0,0
+1173,The Dogs contributed the Savior,1,1
+1174,The Friend was donated by the Dogs,1,0
+1175,The Bird delivered the Friends,0,0
+1176,The Birds addressed the Cat,1,1
+1177,The Saviors recited the Savior,1,1
+1178,The Bird was contributed by the Birds,1,0
+1179,The Birds contributed the Dog,1,0
+1180,The Dog was illustrated by the Friends,1,0
+1181,The Doctors conveyed the Doctor,1,1
+1182,The Dogs demonstrated the Cat,1,1
+1183,The Cat demonstrated the Doctors,0,1
+1184,The Friends was explained by the Dog,0,0
+1185,The Savior was demonstrated by the Cats,1,1
+1186,The Dogs conveyed the Cat,1,1
+1187,The Friend was recited by the Cats,1,0
+1188,The Friend was addressed by the Friends,1,0
+1189,The Dog addressed the Cats,0,1
+1190,The Doctors explained the Bird,1,0
+1191,The Friends was conveyed by the Doctor,0,0
+1192,The Doctors was explained by the Dog,0,0
+1193,The Savior contributed the Cats,0,1
+1194,The Dog was addressed by the Doctors,1,1
+1195,The Doctors was addressed by the Cat,0,1
+1196,The Dogs conveyed the Dog,1,1
+1197,The Cat was donated by the Cats,1,0
+1198,The Dogs was donated by the Friend,0,0
+1199,The Doctor illustrated the Saviors,0,1
+1200,The Friend recited the Saviors,0,0
+1201,The Friend was addressed by the Saviors,1,1
+1202,The Dog conveyed the Cats,0,1
+1203,The Doctor was contributed by the Dogs,1,0
+1204,The Dogs was demonstrated by the Doctor,0,1
+1205,The Bird was addressed by the Cats,1,0
+1206,The Doctor was explained by the Dogs,1,0
+1207,The Cats demonstrated the Doctor,1,1
+1208,The Cat delivered the Birds,0,0
+1209,The Dogs recited the Savior,1,0
+1210,The Birds was contributed by the Bird,0,0
+1211,The Friends was addressed by the Bird,0,0
+1212,The Birds was explained by the Cat,0,0
+1213,The Doctors conveyed the Cat,1,1
+1214,The Friend was explained by the Saviors,1,0
+1215,The Friend contributed the Friends,0,0
+1216,The Birds was recited by the Dog,0,0
+1217,The Cats contributed the Friend,1,0
+1218,The Savior was contributed by the Dogs,1,1
+1219,The Dogs recited the Bird,1,0
+1220,The Dogs was delivered by the Cat,0,0
+1221,The Doctor was donated by the Dogs,1,0
+1222,The Saviors was recited by the Cat,0,0
+1223,The Friends was illustrated by the Friend,0,0
+1224,The Birds illustrated the Friend,1,0
+1225,The Dog was donated by the Dogs,1,1
+1226,The Cat conveyed the Saviors,0,1
+1227,The Friend was illustrated by the Dogs,1,0
+1228,The Cats was recited by the Bird,0,0
+1229,The Savior demonstrated the Saviors,0,1
+1230,The Doctors was conveyed by the Friend,0,0
+1231,The Cat addressed the Dogs,0,1
+1232,The Cats was donated by the Dog,0,0
+1233,The Cat was illustrated by the Cats,1,0
+1234,The Cat was delivered by the Dogs,1,0
+1235,The Saviors conveyed the Doctor,1,1
+1236,The Birds illustrated the Savior,1,1
+1237,The Birds explained the Cat,1,0
+1238,The Cats illustrated the Dog,1,0
+1239,The Doctors delivered the Cat,1,1
+1240,The Friends demonstrated the Bird,1,0
+1241,The Cats was illustrated by the Savior,0,0
+1242,The Saviors was demonstrated by the Friend,0,1
+1243,The Bird was illustrated by the Friends,1,0
+1244,The Doctor demonstrated the Doctors,0,1
+1245,The Cat was demonstrated by the Cats,1,1
+1246,The Saviors was explained by the Savior,0,1
+1247,The Friend was donated by the Cats,1,0
+1248,The Cat was delivered by the Birds,1,0
+1249,The Dog explained the Dogs,0,1
+1250,The Dog was illustrated by the Birds,1,0
+1251,The Cats recited the Cat,1,0
+1252,The Birds contributed the Cat,1,0
+1253,The Friends donated the Doctor,1,0
+1254,The Dog demonstrated the Saviors,0,1
+1255,The Saviors was demonstrated by the Bird,0,1
+1256,The Friend recited the Doctors,0,0
+1257,The Friends addressed the Dog,1,1
+1258,The Doctors was demonstrated by the Doctor,0,1
+1259,The Cat was recited by the Saviors,1,0
+1260,The Birds was addressed by the Cat,0,0
+1261,The Doctor contributed the Cats,0,0
+1262,The Dogs was delivered by the Friend,0,0
+1263,The Saviors was donated by the Dog,0,1
+1264,The Cats explained the Dog,1,1
+1265,The Doctors was recited by the Cat,0,0
+1266,The Bird was explained by the Birds,1,0
+1267,The Doctors was demonstrated by the Friend,0,0
+1268,The Saviors demonstrated the Bird,1,1
+1269,The Dogs was contributed by the Bird,0,0
+1270,The Doctor was addressed by the Cats,1,0
+1271,The Doctors demonstrated the Savior,1,1
+1272,The Dog was contributed by the Cats,1,0
+1273,The Savior delivered the Doctors,0,1
+1274,The Birds was recited by the Cat,0,0
+1275,The Dogs explained the Dog,1,1
+1276,The Savior recited the Dogs,0,0
+1277,The Cat was donated by the Saviors,1,1
+1278,The Saviors was recited by the Bird,0,0
+1279,The Birds donated the Dog,1,0
+1280,The Doctors illustrated the Bird,1,0
+1281,The Savior was contributed by the Cats,1,1
+1282,The Birds conveyed the Savior,1,1
+1283,The Dog was illustrated by the Cats,1,0
+1284,The Doctor contributed the Birds,0,0
+1285,The Dogs demonstrated the Bird,1,1
+1286,The Saviors was contributed by the Cat,0,1
+1287,The Saviors was contributed by the Bird,0,0
+1288,The Bird recited the Friends,0,0
+1289,The Friends was conveyed by the Dog,0,0
+1290,The Doctors was contributed by the Savior,0,0
+1291,The Doctors was donated by the Friend,0,0
+1292,The Birds recited the Bird,1,0
+1293,The Friends was contributed by the Dog,0,0
+1294,The Bird was conveyed by the Dogs,1,0
+1295,The Cats delivered the Cat,1,0

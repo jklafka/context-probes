@@ -3,7 +3,7 @@ import csv
 import argparse
 import numpy as np
 
-with open("task_vocab.json", 'r') as json_file:
+with open("task_dict.json", 'r') as json_file:
     vocab_dict = json.load(json_file)
 for key, val in vocab_dict.items():
     vocab_dict[key] = [float(num) for num in val.split()]
@@ -18,10 +18,10 @@ for key, val in vocab_dict.items():
 ## now for the train data
 verbs = []
 labels = []
-with open("../data/elmo_train.csv", 'r') as input_data:
+with open("../data/active_train.csv", 'r') as input_data:
     csv_reader = csv.reader(input_data)
     for row in csv_reader:
-        verbs.append(row[2])
+        verbs.append(row[0])
         labels.append(row[1])
 
 verb_embeddings = []
@@ -29,7 +29,7 @@ for verb in verbs:
     embedding = np.array(vocab_dict[verb.lower()])
     verb_embeddings.append(embedding)
 
-with open("../data/glove_verb_train.csv", 'w') as dataset:
+with open("../data/glove_noun_train.csv", 'w') as dataset:
   csv_writer = csv.writer(dataset, delimiter = ',')
   for i in range(len(verb_embeddings)):
       csv_writer.writerow(verb_embeddings[i].tolist() + [labels[i]])
@@ -37,10 +37,10 @@ with open("../data/glove_verb_train.csv", 'w') as dataset:
 ## now for the test data
 verbs = []
 labels = []
-with open("../data/elmo_test.csv", 'r') as input_data:
+with open("../data/active_test.csv", 'r') as input_data:
     csv_reader = csv.reader(input_data)
     for row in csv_reader:
-        verbs.append(row[2])
+        verbs.append(row[0])
         labels.append(row[1])
 
 verb_embeddings = []
@@ -48,7 +48,7 @@ for verb in verbs:
     embedding = np.array(vocab_dict[verb.lower()])
     verb_embeddings.append(embedding)
 
-with open("../data/glove_verb_test.csv", 'w') as dataset:
+with open("../data/glove_noun_test.csv", 'w') as dataset:
   csv_writer = csv.writer(dataset, delimiter = ',')
   for i in range(len(verb_embeddings)):
       csv_writer.writerow(verb_embeddings[i].tolist() + [labels[i]])

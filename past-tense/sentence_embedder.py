@@ -17,7 +17,27 @@ embed = hub.Module("https://tfhub.dev/google/universal-sentence-encoder/2")
 
 labels = []
 messages = []
-with open("../data/elmo_test.csv", 'r') as simple_data:
+with open("../data/active_train.csv", 'r') as simple_data:
+    csv_reader = csv.reader(simple_data)
+    for row in csv_reader:
+        labels.append(row[1])
+        messages.append(row[0])
+
+# Reduce logging output.
+tf.logging.set_verbosity(tf.logging.ERROR)
+
+with tf.Session() as session:
+  session.run([tf.global_variables_initializer(), tf.tables_initializer()])
+  message_embeddings = session.run(embed(messages))
+
+  with open("../data/sen_sen_train.csv", 'w') as dataset:
+      csv_writer = csv.writer(dataset, delimiter = ',')
+      for i, message_embedding in enumerate(np.array(message_embeddings).tolist()):
+          csv_writer.writerow(message_embedding + [labels[i]])
+
+labels = []
+messages = []
+with open("../data/active_test.csv", 'r') as simple_data:
     csv_reader = csv.reader(simple_data)
     for row in csv_reader:
         labels.append(row[1])
