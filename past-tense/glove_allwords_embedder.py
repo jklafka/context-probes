@@ -30,7 +30,7 @@ for i in range(5):
     with open("../data/glove_word" + str(i) + "_train.csv", 'w') as dataset:
       csv_writer = csv.writer(dataset, delimiter = ',')
       for j in range(len(word_embeddings[i])):
-          csv_writer.writerow(word_embeddings[i][j].tolist() + [labels[i]])
+          csv_writer.writerow(word_embeddings[i][j].tolist() + [labels[j]])
 
 ## now for the test data
 messages = []
@@ -55,4 +55,4 @@ for i in range(5):
     with open("../data/glove_word" + str(i) + "_test.csv", 'w') as dataset:
       csv_writer = csv.writer(dataset, delimiter = ',')
       for j in range(len(word_embeddings[i])):
-          csv_writer.writerow(word_embeddings[i][j].tolist() + [labels[i]])
+          csv_writer.writerow(word_embeddings[i][j].tolist() + [labels[j]])
