@@ -1,0 +1,39 @@
+---
+title: "Analyzing effective probes data"
+author: "Josef Klafka and Allyson Ettinger"
+date: "7/29/2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+library(tidyverse)
+library(here)
+
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r data pipeline}
+read_results <- function(filename) {
+  read_csv(here(filename), 
+                    col_names = c("rep", "size", "word", "score"))
+}
+
+object <- read_results("object.csv")
+
+# plotting the data
+object %>% 
+  ggplot(aes(x = size, y = score)) + 
+  geom_col(aes(color = rep)) + 
+  facet_grid(word~rep) 
+```
+
+```{r tests}
+res <- subject %>% 
+  filter(rep == "bert", word == 4) %>% slice(1, 3) %>% # for example
+  select(score) %>% 
+  mutate(score = score * 1000) %>% 
+  mutate(total = 1000) %>% 
+  t()
+
+res %>% prop.test()
+```
