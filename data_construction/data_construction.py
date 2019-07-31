@@ -19,20 +19,20 @@ testSubjs = [('lackey', 0), ('lackeys', 1), ('boss', 0), \
     ('bosses', 1), ('kid', 0), ('kids', 1), ('friend', 0), \
     ('friends', 1), ('savior', 0), ('saviors', 1), ('doctor', 0), ('doctors', 1)]
 
-trainAdj = ["friendly", "helpful", "old", "young", "new"]
-testAdj = ["good", "bad", "angry", "strange", "normal"]
+trainAdjs = ["friendly", "helpful", "old", "young", "new"]
+testAdjs = ["good", "bad", "angry", "strange", "normal"]
 
 sens = []
 
 for trainVerb in trainVerbs:
     for trainSubj in trainSubjs:
         for trainObj in trainSubjs:
+            for trainAdj in trainAdjs:
             # if trainSubj[1] != trainObj[1]:
                 sens.append(("The " + trainSubj[0] + ' ' + trainVerb + ' the ' + \
-                + trainObj[0], trainObj[1]))
-                # sens.append(("The " + trainObj[0] + " was " + trainVerb + " by the " \
-                #                 + trainSubj[0], trainSubj[1]))
-                sens.append(("The " + ))
+                trainObj[0], trainSubj[1]))
+                sens.append(("The " + trainSubj[0] + ' ' + trainVerb + ' the ' + \
+                trainAdj + ' ' + trainObj[0], trainSubj[1]))
 random.shuffle(sens)
 sens = sens[:4000]
 
@@ -46,11 +46,13 @@ sens = []
 for testVerb in testVerbs:
     for testSubj in testSubjs:
         for testObj in testSubjs:
+            for testAdj in testAdjs:
             # if testSubj[1] != testObj[1]:
+                # sens.append(("The " + testSubj[0] + ' ' + testVerb + ' the ' \
+                # + testObj[0], testSubj[1]))
                 sens.append(("The " + testSubj[0] + ' ' + testVerb + ' the ' \
-                + testObj[0], testObj[1]))
-                # sens.append(("The " + testObj[0] + " was " + testVerb + " by the " \
-                #                 + testSubj[0], testSubj[1]))
+                + testAdj + ' ' + testObj[0], testSubj[1]))
+
 random.shuffle(sens)
 sens = sens[:1000]
 
