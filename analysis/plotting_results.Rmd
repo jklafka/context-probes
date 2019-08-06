@@ -18,7 +18,7 @@ read_results <- function(filename) {
                     col_names = c("rep", "size", "word", "score"))
 }
 
-object <- read_results("object.csv")
+object <- read_results("gender.csv")
 
 # plotting the data
 object %>% 
