@@ -43,10 +43,15 @@ testVerbs = verbs[80:100]
 #         ('bush', 0)]
 
 ## Tense
-trainSubjs = ['person', 'man', 'woman', 'linguist', 'priest', 'worker', 'actor',
+trainSubjs = ['person', 'man', 'woman', 'linguist', 'priest', 'worker', 'actor', \
         'reporter', 'judge']
 testSubjs = ['player', 'lackey', 'boss', 'kid', 'friend', 'savior', 'doctor']
+trainVerbs = [(verb, 1) for verb in verbs[:40]] + \
+    [(verb, 0) for verb in present_verbs[:40]]
+testVerbs = [(verb, 1) for verb in verbs[80:90]] + \
+    [(verb, 0) for verb in present_verbs[80:90]]
 
+## Distance
 
 # trainAdjs = ["friendly", "helpful", "old", "young", "new"]
 # testAdjs = ["good", "bad", "angry", "strange", "normal"]
@@ -58,8 +63,8 @@ for trainVerb in trainVerbs:
         for trainObj in trainSubjs:
             # for trainAdj in trainAdjs:
             # if trainSubj[1] != trainObj[1]:
-                sens.append(("The " + trainSubj[0] + ' ' + trainVerb + ' the ' + \
-                trainObj[0], trainSubj[1]))
+                sens.append(("The " + trainSubj + ' ' + trainVerb[0] + ' the ' + \
+                trainObj, trainVerb[1]))
                 # sens.append(("The " + trainSubj[0] + ' with the ' + trainAdj + ' ' + trainVerb + ' the ' + \
                 # trainObj[0], trainSubj[1]))
 random.shuffle(sens)
@@ -77,8 +82,8 @@ for testVerb in testVerbs:
         for testObj in testSubjs:
             # for testAdj in testAdjs:
             # if testSubj[1] != testObj[1]:
-                sens.append(("The " + testSubj[0] + ' ' + testVerb + ' the ' \
-                + testObj[0], testSubj[1]))
+                sens.append(("The " + testSubj + ' ' + testVerb[0] + ' the ' \
+                + testObj, testVerb[1]))
                 # sens.append(("The " + testSubj[0] + ' ' + testVerb + ' the ' \
                 # + testAdj + ' ' + testObj[0], testSubj[1]))
 
