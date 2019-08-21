@@ -10,7 +10,7 @@ for key, val in vocab_dict.items():
 ## now for the train data
 messages = []
 labels = []
-with open("../data/active_train.csv", 'r') as input_data:
+with open("../data/tense_train.csv", 'r') as input_data:
     csv_reader = csv.reader(input_data)
     for row in csv_reader:
         messages.append(row[0])
@@ -35,7 +35,7 @@ for i in range(5):
 ## now for the test data
 messages = []
 labels = []
-with open("../data/active_test.csv", 'r') as input_data:
+with open("../data/tense_test.csv", 'r') as input_data:
     csv_reader = csv.reader(input_data)
     for row in csv_reader:
         messages.append(row[0])

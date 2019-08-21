@@ -1,0 +1,41 @@
+rep,word,score,target
+bert,the (subj),0.857,subject
+bert,cat,0.949,subject
+bert,chased,0.957,subject
+bert,the (obj),0.859,subject
+bert,rats,0.886,subject
+elmo,the (subj),1,subject
+elmo,cat,1,subject
+elmo,chased,0.994,subject
+elmo,the (obj),0.961,subject
+elmo,rats,0.975,subject
+gpt,the (subj),0.505,subject
+gpt,cat,0.917,subject
+gpt,chased,1,subject
+gpt,the (obj),0.969,subject
+gpt,rats,0.931,subject
+glove,the (subj),0.5,subject
+glove,cat,1,subject
+glove,chased,0.5,subject
+glove,the (obj),0.5,subject
+glove,rats,0.5,subject
+bert,the (subj),0.915,object
+bert,cat,0.942,object
+bert,chased,0.96,object
+bert,the (obj),0.979,object
+bert,rats,0.989,object
+elmo,the (subj),0.805,object
+elmo,cat,0.694,object
+elmo,chased,0.987,object
+elmo,the (obj),1,object
+elmo,rats,1,object
+gpt,the (subj),0.501,object
+gpt,cat,0.503,object
+gpt,chased,0.517,object
+gpt,the (obj),0.484,object
+gpt,rats,0.754,object
+glove,the (subj),0.5,object
+glove,cat,0.5,object
+glove,chased,0.5,object
+glove,the (obj),0.5,object
+glove,rats,1,object

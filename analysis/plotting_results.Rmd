@@ -6,6 +6,7 @@ output: html_document
 ---
 
 ```{r setup, include=FALSE}
+libra
 library(tidyverse)
 library(here)
 
@@ -15,16 +16,48 @@ knitr::opts_chunk$set(echo = TRUE)
 ```{r data pipeline}
 read_results <- function(filename) {
   read_csv(here(filename), 
-                    col_names = c("rep", "size", "word", "score"))
+                    col_names = c("rep", "word", "score"))
 }
 
-object <- read_results("tense.csv")
+
+number <- read_csv(here("scil/number.csv"))
+number$word <- rep(c("the (subj)", "cat", "chased", "the (obj)", "rats"), times = 4) %>% 
+  factor(levels = c("the (subj)", "cat", "chased", "the (obj)", "rats"))
+sn <- read_results("scil/subject_number.csv") %>%
+  mutate(target = "subject")
+sn$word <- rep(c("the (subj)", "cat", "chased", "the (obj)", "rats"), times = 4) %>% 
+  factor(levels = c("the (subj)", "cat", "chased", "the (obj)", "rats"))
+
+on <- read_results("scil/object_number.csv") %>%
+  mutate(target = "object")
+on$word <- rep(c("the (subj)", "cat", "chased", "the (obj)", "rats"), times = 4) %>% 
+  factor(levels = c("the (subj)", "cat", "chased", "the (obj)", "rats"))
+number <- sn %>% bind_rows(on)
+
+number %>% 
+  filter(target == "subject") %>%
+  ggplot(aes(x = `Probed word position`, y = Accuracy, color = Embedder, group = Embedder)) + 
+  geom_point() + 
+  geom_line() 
+
+
+og <- read_results("scil/object_gender.csv") %>% 
+  mutate(target = "object")
+og$word <- rep(c("the (subj)", "cat", "chased", "the (obj)", "rats"), times = 4) %>% 
+  factor(levels = c("the (subj)", "cat", "chased", "the (obj)", "rats"))
+sg <- read_results("scil/subject_gender.csv") %>%
+  mutate(target = "subject")
+sg$word <- rep(c("the (subj)", "cat", "chased", "the (obj)", "rats"), times = 4) %>% 
+  factor(levels = c("the (subj)", "cat", "chased", "the (obj)", "rats"))
+gender <- sg %>% bind_rows(og)
+
+oa <- read_results("scil/object_animacy.csv")
+
+
+sa <- read_results("scil/subject_animacy.csv")
 
 # plotting the data
-object %>% 
-  ggplot(aes(x = size, y = score)) + 
-  geom_col(aes(color = rep)) + 
-  facet_grid(word~rep) 
+
 ```
 
 ```{r tests}
