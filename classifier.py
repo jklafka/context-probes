@@ -1,38 +1,37 @@
 import torch
-import torch.nn as nn
-import torch.optim as optim
-import torch.nn.functional as F
 import csv
-import numpy as np
+import torch.nn as nn
+import torch.nn.functional as F
+import torch.optim as optim
+
 
 trainset = []
 trainlabels = []
-with open("train.csv", 'r') as train:
+with open("data/train.csv", 'r') as train:
     reader = csv.reader(train)
     for row in reader:
         trainset.append(list(map(float, row[:-1])))
-        label = int(row[-1])
-        temp = [0, 0]
-        temp[label] = 1
-        trainlabels.append(temp)
+        # label = int(row[-1])
+        # temp = [0, 0]
+        # temp[label] = 1
+        trainlabels.append(row[-1])
 trainset = torch.FloatTensor(trainset)
-trainlabels = torch.FloatTensor(trainlabels)
+trainlabels = [int(label) for label in trainlabels]
+trainlabels = torch.LongTensor(trainlabels)
 
 testset = []
 testlabels = []
-with open("test.csv", 'r') as test:
+with open("data/test.csv", 'r') as test:
     reader = csv.reader(test)
     for row in reader:
         testset.append(list(map(float, row[:-1])))
-        label = int(row[-1])
-        temp = [0, 0]
-        temp[label] = 1
-        testlabels.append(temp)
+        testlabels.append(row[-1])
 testset = torch.FloatTensor(testset)
-testlabels = torch.FloatTensor(testlabels)
+testlabels = [int(label) for label in testlabels]
+testlabels = torch.LongTensor(testlabels)
 
 
-class simple_3layer(nn.Module):
+class Net(nn.Module):
     def __init__(self, input_dim, hidden_dims):
         super().__init__()
         self.lin1 = nn.Linear(input_dim, hidden_dims[0], bias = True)
@@ -47,28 +46,39 @@ class simple_3layer(nn.Module):
         output = F.relu(self.linout(output))
         return output
 
-model = simple_3layer(300, (20, 20, 20))
-criterion = nn.MSELoss(reduction='sum')
-optimizer = optim.SGD(model.parameters(), lr=1e-4, momentum=0.9)
 
-for epoch in range(2):  # loop over the dataset multiple times
+net = Net(300, (20,20,20))
+
+
+criterion = nn.CrossEntropyLoss()
+optimizer = optim.SGD(net.parameters(), lr=0.001, momentum=0.9)
+
+for epoch in range(1000):  # loop over the dataset multiple times
+    running_loss = 0.0
+
     # zero the parameter gradients
     optimizer.zero_grad()
 
     # forward + backward + optimize
-    # for i in range(len(trainset)):
-    output = model(trainset)
-    loss = criterion(output, trainlabels)
+    outputs = net(trainset)
+    loss = criterion(outputs, trainlabels)
     loss.backward()
     optimizer.step()
 
+    # print statistics
+    running_loss += loss.item()
+    print(running_loss)
+
 print('Finished Training')
+
 
 correct = 0
 total = 0
 with torch.no_grad():
-    output = model(testset[i])
-    predicted = float(torch.max(output, 1)[1])
-    total += 1
-    correct += (predicted == testlabels[i].item())
-print(correct/total)
+    outputs = net(testset)
+    _, predicted = torch.max(outputs.data, 1)
+    total += testlabels.size(0)
+    correct += (predicted == testlabels).sum().item()
+
+print('Accuracy of the network on the 1000 test: %d %%' % (
+    100 * correct / total))
