@@ -4,12 +4,14 @@ from sklearn.neural_network import MLPClassifier
 from sklearn.model_selection import train_test_split
 
 for i in range(5):
-	print("Using word " + str(i))
-	df = pd.read_csv("../data/glove_word" + str(i) + "_train.csv", header=None)
+	df = pd.read_csv("../data/train.csv", header=None)
+	# print("Using word " + str(i))
+	# df = pd.read_csv("../data/glove_word" + str(i) + "_train.csv", header=None)
 	X_train = df.iloc[:, :-1] #first n-1 columns are embeddings
 	Y_train = df.iloc[:, -1] #last column is class label
 
-	df = pd.read_csv("../data/glove_word" + str(i) + "_test.csv", header=None)
+	# df = pd.read_csv("../data/glove_word" + str(i) + "_test.csv", header=None)
+	df = pd.read_csv("../data/test.csv", header=None)
 	X_test = df.iloc[:, :-1] #first n-1 columns are embeddings
 	Y_test = df.iloc[:, -1] #last column is class label
 	print("The train balance is {}".format(sum(Y_train)/Y_train.shape[0]))
@@ -27,7 +29,7 @@ for i in range(5):
 	# X.to_csv("pred.csv")
 	# print(mlp.score(X_test, Y_test))
 
-	mlp = MLPClassifier(hidden_layer_sizes = (1024), \
+	mlp = MLPClassifier(hidden_layer_sizes = (20, 20, 20), \
 	    max_iter = 1000, \
 	    alpha = .001, solver = "sgd")
 

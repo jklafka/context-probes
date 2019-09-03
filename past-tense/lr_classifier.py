@@ -10,11 +10,13 @@ from sklearn.model_selection import train_test_split
 
 ## Use Logistic Regression
 for i in range(5):
-    df = pd.read_csv("../data/glove_word" + str(i) + "_train.csv", header=None)
+    df = pd.read_csv("../data/train.csv", header=None)
+    # df = pd.read_csv("../data/glove_word" + str(i) + "_train.csv", header=None)
     X_train = df.iloc[:, :-1] #first n-1 columns are embeddings
     Y_train = df.iloc[:, -1] #last column is class label
 
-    df = pd.read_csv("../data/glove_word" + str(i) + "_test.csv", header=None)
+    df = pd.read_csv("../data/test.csv", header=None)
+    # df = pd.read_csv("../data/glove_word" + str(i) + "_test.csv", header=None)
     X_test = df.iloc[:, :-1] #first n-1 columns are embeddings
     Y_test = df.iloc[:, -1] #last column is class label
     lr = LogisticRegression()
@@ -24,5 +26,5 @@ for i in range(5):
 # X = pd.read_csv("../data/elmo_test.csv", header=None)
 # X[2] = Y_hat
 # X.to_csv("pred.csv")
-    print("Using word " + str(i))
+    # print("Using word " + str(i))
     print(lr.score(X_test, Y_test))
