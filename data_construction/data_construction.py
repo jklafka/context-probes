@@ -42,37 +42,59 @@ testVerbs = verbs[80:100]
 #         ('bug', 1), ('shoe', 0), ('rock', 0), ('lake', 0), ('sky', 0), ('tree', 0), \
 #         ('bush', 0)]
 
-## Tense
+## Verbs
 trainSubjs = ['person', 'man', 'woman', 'linguist', 'priest', 'worker', 'actor', \
-        'reporter', 'judge']
-testSubjs = ['player', 'lackey', 'boss', 'kid', 'friend', 'savior', 'doctor']
+        'reporter', 'judge', 'farmer', 'traveler', 'painter', 'actress', 'genius', \
+        'fool', 'performer', 'student', 'teacher', 'athlete', 'activist', 'donor', \
+        'professor', 'philosopher']
+testSubjs = ['player', 'lackey', 'boss', 'kid', 'friend', 'savior', 'doctor', \
+        'pedestrian', 'jester', 'politician', 'runner', 'nurse', 'leader', 'mechanic',\
+        'priest', 'biker']
+## Tense
 # trainVerbs = [(verb, 1) for verb in verbs[:40]] + \
 #     [(verb, 0) for verb in present_verbs[:40]]
 # testVerbs = [(verb, 1) for verb in verbs[80:90]] + \
 #     [(verb, 0) for verb in present_verbs[80:90]]
+
+## Dynamic vs stative
+# dynamic = ["helped", "improved", "interviewed", "introduced", "justified", \
+#     "persuaded", "saved", "showed", "studied", "targeted", "transformed", \
+#     "treated", "uncovered", "unveiled", "validated", "valued", "wrote", "ate", \
+#     "hit", "buried"]
+# labels = [1] * len(dynamic)
+# dynamic = list(zip(dynamic, labels))
+# static = ["believed", "concerned", "disliked", "doubted", "hated", "heard", "impressed", \
+#     "knew", "liked", "loved", "needed", "owned", "preferred", "promised", "recognized", \
+#     "remember", "surprised", "understood", "smelled", "perceived"]
+# labels = [0] * len(static)
+# static = list(zip(static, labels))
+# trainVerbs = dynamic[:15] + static[:15]
+# testVerbs = dynamic[15:] + static[15:]
 
 ## Distance
 
 # trainAdjs = ["friendly", "helpful", "old", "young", "new"]
 # testAdjs = ["good", "bad", "angry", "strange", "normal"]
 
+## Quantifiers
+quantifiers = [('all', 1), ('every', 1), ('some', 0), ('a', 0)]
+
 sens = []
 
 for trainVerb in trainVerbs:
     for trainSubj in trainSubjs:
         for trainObj in trainSubjs:
+            for quantifier in quantifiers:
             # for trainAdj in trainAdjs:
             # if trainSubj[1] != trainObj[1]:
-                sens.append(("The " + trainSubj + ' ' + trainVerb + ' the ' + \
-                trainObj, 1))
-                sens.append(("The " + trainSubj + ' ' + trainVerb + ' a ' + \
-                trainObj, 0))
+                sens.append((quantifier[0] + ' ' + trainSubj + ' ' + trainVerb + " the " + \
+                trainObj, quantifier[1]))
                 # sens.append(("The " + trainSubj[0] + ' with the ' + trainAdj + ' ' + trainVerb + ' the ' + \
                 # trainObj[0], trainSubj[1]))
 random.shuffle(sens)
 sens = sens[:4000]
 
-with open("../data/object_def_train.csv", 'w') as csv_file:
+with open("../data/quant_train.csv", 'w') as csv_file:
      data_writer = csv.writer(csv_file, delimiter = ',')
      for row in sens:
          data_writer.writerow(list(row))
@@ -82,12 +104,11 @@ sens = []
 for testVerb in testVerbs:
     for testSubj in testSubjs:
         for testObj in testSubjs:
+            for quantifier in quantifiers:
             # for testAdj in testAdjs:
             # if testSubj[1] != testObj[1]:
-                sens.append(("The " + testSubj + ' ' + testVerb + ' the ' \
-                + testObj, 1))
-                sens.append(("The " + testSubj + ' ' + testVerb + ' a ' \
-                + testObj, 0))
+                sens.append((quantifier[0] + ' ' + testSubj + ' ' + testVerb + " the " + \
+                testObj, quantifier[1]))
                 # sens.append(("The " + testSubj[0] + ' ' + testVerb + ' the ' \
                 # + testAdj + ' ' + testObj[0], testSubj[1]))
 
@@ -95,7 +116,7 @@ for testVerb in testVerbs:
 random.shuffle(sens)
 sens = sens[:1000]
 
-with open("../data/object_def_test.csv", 'w') as csv_file:
+with open("../data/quant_test.csv", 'w') as csv_file:
      data_writer = csv.writer(csv_file, delimiter = ',')
      for row in sens:
          data_writer.writerow(list(row))

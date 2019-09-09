@@ -65,15 +65,12 @@ word_embeddings = {0: [],
     2: [],
     3: [],
     4: []}
-for sentence in sentences:
-    embeddings = elmo.embed_sentence(sentence)
+for j in range(len(sentences)):
+    embeddings = elmo.embed_sentence(sentences[j])
+    probe_embeddings = elmo.embed_sentence(probes[j])
     for i in TOKENS:
-        word_embeddings[TOKENS.index(i)].append(embeddings[1, i, :])
-for sentence in probes:
-    embeddings = elmo.embed_sentence(sentence)
-    for i in TOKENS:
-        word_embeddings[TOKENS.index(i)].append(embeddings[1, 1, :])
-
+        word_embeddings[TOKENS.index(i)].append(embeddings[1, i, :] + \
+            probe_embeddings[1, 1, :])
 
 for i in range(5):
     with open("../data/elmo/test" + str(i) + ".csv", 'w') as dataset:
