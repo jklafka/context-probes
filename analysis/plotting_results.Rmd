@@ -6,7 +6,6 @@ output: html_document
 ---
 
 ```{r setup, include=FALSE}
-libra
 library(tidyverse)
 library(here)
 
@@ -18,6 +17,9 @@ read_results <- function(filename) {
   read_csv(here(filename), 
                     col_names = c("rep", "word", "score"))
 }
+
+
+read_csv(here("dynamic.csv"))
 
 
 number <- read_csv(here("scil/number.csv"))

@@ -12,6 +12,7 @@ trainSubjs = [('person', 'man'), ('woman', 'linguist'), ('priest', 'worker'), ('
         'reporter'), ('judge', 'author')]
 testSubjs = [('player', 'lackey'), ('boss', 'kid'), ('friend', 'savior'), ('doctor', 'lawyer')]
 
+
 trainObjs = ['partner', 'barista', 'mother']
 testObjs = ['father', 'runner', 'soldier']
 
