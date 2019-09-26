@@ -26,28 +26,21 @@ TOKENS = [0, 1, 2, 3, 4]
 messages = []
 labels = []
 probes = []
+
+# get training and testing data
 with open(args.trainset, 'r') as data:
     csv_reader = csv.reader(data)
     for row in csv_reader:
         messages.append(row[0])
-        labels.append(row[1])
-        probes.append(row[2])
+        probes.append(row[1])
+        labels.append(row[2])
 
 with open(args.testset, 'r') as data:
     csv_reader = csv.reader(data)
     for row in csv_reader:
         messages.append(row[0])
-        labels.append(row[1])
-        probes.append(row[2])
-
-vocab = {word for item in messages for word in item.split()} | {word for item in probes \
-    for word in item.split()}
-vocab_dict = {}
-k = len(vocab)
-for i, word in enumerate(vocab):
-    onehot = [0] * k
-    onehot[i] = 1
-    vocab_dict[word] = onehot
+        probes.append(row[1])
+        labels.append(row[2])
 
 
 for j in range(len(messages)):
@@ -67,29 +60,12 @@ for j in range(len(messages)):
     # get list of the embeddings from the lowest layer - 0 index for lowest layer up to 4
     embeddings = [encoded_layers[11][:, i, :] for i in TOKENS]
 
+    # make onehot vector
+    probe_vector = [0] * 100
+    probe_vector[int(probes[j])] = 1
 
-    # text = probes[j]
-    # #tokenize input
-    # tokenized_text = tokenizer.tokenize(text)
-    # #if len(tokenized_text) != len(TOKENS):
-    # #    continue
-    # #convert to vocabulary indices tensor
-    # indexed_tokens = tokenizer.convert_tokens_to_ids(tokenized_text)
-    # tokens_tensor = torch.tensor([indexed_tokens])
-    #
-    # tokens_tensor = tokens_tensor.to('cuda')
-    #
-    # with torch.no_grad():
-    #     encoded_layers, _ = model(tokens_tensor)
-    # # get list of the embeddings from the lowest layer - 0 index for lowest layer up to 4
-    # probe_embeddings = [encoded_layers[11][:, i, :] for i in TOKENS]
-
-    probe_word = text.split()[1]
-    probe_vector = vocab_dict[probe_word]
-
-    for i in range(len(TOKENS)):
+    for i in TOKENS:
         vector = embeddings[i].tolist()[0]
-        # probe_vector = probe_embeddings[1].tolist()[0] ####### CHANGE #######
 
         if j < NUM_TRAIN:
             with open("../../data/bert/train" + str(i) + ".csv", 'a') as output:

@@ -12,92 +12,45 @@ args = parser.parse_args()
 import logging
 logging.basicConfig(filename = "elmo.log", format="%(message)s", level=logging.INFO)
 
+NUM_TRAIN = 4000
 TOKENS = [0, 1, 2, 3, 4]
 elmo = ElmoEmbedder(cuda_device = 0)
 
 sentences = []
 labels = []
 probes = []
-# verb_indices = []
+
+# read in training and testing data
 with open(args.trainset, 'r') as input_data:
     csv_reader = csv.reader(input_data)
     for row in csv_reader:
         split_sen = row[0].split()
         sentences.append(split_sen)
-        labels.append(row[1])
-        split_sen = row[2].split()
-        probes.append(split_sen)
+        probes.append(row[1])
+        labels.append(row[2])
 
-vocab = {word for item in sentences for word in item.split()} | {word for item in probes \
-    for word in item.split()}
-vocab_dict = {}
-k = len(vocab)
-for i, word in enumerate(vocab):
-    onehot = [0] * k
-    onehot[i] = 1
-    vocab_dict[word] = onehot
-
-word_embeddings = {0: [],
-    1: [],
-    2: [],
-    3: [],
-    4: []}
-for j in range(len(sentences)):
-    embeddings = elmo.embed_sentence(sentences[j])
-    probe_word = sentences[j].split()[1]
-    probe_vector = vocab_dict[probe_word]
-    # probe_embeddings = elmo.embed_sentence(probes[j])
-    for i in TOKENS:
-        word_embeddings[TOKENS.index(i)].append(embeddings[1, i, :] + \
-            # probe_embeddings[1, 1, :])
-            probe_vector)
-
-for i in range(5):
-    with open("../../data/elmo/train" + str(i) + ".csv", 'w') as dataset:
-      csv_writer = csv.writer(dataset, delimiter = ',')
-      for j in range(len(word_embeddings[i])):
-          csv_writer.writerow(word_embeddings[i][j].tolist() + [labels[j]])
-
-
-sentences = []
-labels = []
-probes = []
-# verb_indices = []
 with open(args.testset, 'r') as input_data:
     csv_reader = csv.reader(input_data)
     for row in csv_reader:
         split_sen = row[0].split()
         sentences.append(split_sen)
-        labels.append(row[1])
-        split_sen = row[2].split()
-        probes.append(split_sen)
+        probes.append(row[1])
+        labels.append(row[2])
 
-vocab = {word for item in sentences for word in item.split()} | {word for item in probes \
-    for word in item.split()}
-vocab_dict = {}
-k = len(vocab)
-for i, word in enumerate(vocab):
-    onehot = [0] * k
-    onehot[i] = 1
-    vocab_dict[word] = onehot
 
-word_embeddings = {0: [],
-    1: [],
-    2: [],
-    3: [],
-    4: []}
 for j in range(len(sentences)):
     embeddings = elmo.embed_sentence(sentences[j])
-    probe_word = sentences[j].split()[1]
-    probe_vector = vocab_dict[probe_word]
-    # probe_embeddings = elmo.embed_sentence(probes[j])
-    for i in TOKENS:
-        word_embeddings[TOKENS.index(i)].append(embeddings[1, i, :] + \
-            # probe_embeddings[1, 1, :])
-            probe_vector)
+    probe_vector = [0] * 100
+    probe_vector[probes[j]] = 1
 
-for i in range(5):
-    with open("../../data/elmo/test" + str(i) + ".csv", 'w') as dataset:
-      csv_writer = csv.writer(dataset, delimiter = ',')
-      for j in range(len(word_embeddings[i])):
-          csv_writer.writerow(word_embeddings[i][j].tolist() + [labels[j]])
+    for i in TOKENS:
+        vector = embeddings[1, i, :].tolist()
+
+        if j < NUM_TRAIN:
+            with open("../../data/elmo/train" + str(i) + ".csv", 'a') as output:
+                csv_writer = csv.writer(output)
+                csv_writer.writerow(vector + probe_vector + [labels[j]])
+        else:
+            with open("../../data/elmo/test" + str(i) + ".csv", 'a') as output:
+                csv_writer = csv.writer(output)
+                csv_writer.writerow(vector + probe_vector + [labels[j]])
