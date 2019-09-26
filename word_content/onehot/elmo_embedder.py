@@ -40,8 +40,9 @@ with open(args.testset, 'r') as input_data:
 
 for j in range(len(sentences)):
     embeddings = elmo.embed_sentence(sentences[j])
+    # make onehot vector
     probe_vector = [0] * 100
-    probe_vector[probes[j]] = 1
+    probe_vector[int(probes[j]) - 1] = 1
 
     for i in TOKENS:
         vector = embeddings[1, i, :].tolist()

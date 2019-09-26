@@ -62,7 +62,7 @@ for j in range(len(messages)):
 
     # make onehot vector
     probe_vector = [0] * 100
-    probe_vector[int(probes[j])] = 1
+    probe_vector[int(probes[j]) - 1] = 1
 
     for i in TOKENS:
         vector = embeddings[i].tolist()[0]
