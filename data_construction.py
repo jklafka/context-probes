@@ -4,9 +4,9 @@ import random
 nouns = []
 
 # change this to whatever you want the name of the output files to be
-output_name = "verb"
+output_name = "number"
 # change the target for the noun tasks
-target_name = "object"
+target_name = "subject"
 
 ## number
 if output_name == "number":
