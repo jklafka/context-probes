@@ -4,9 +4,12 @@ import random
 nouns = []
 
 # change this to whatever you want the name of the output files to be
-output_name = "number"
+output_name = "tense"
 # change the target for the noun tasks
-target_name = "subject"
+target_name = "verb"
+
+num_train = 80
+num_test = 100
 
 ## number
 if output_name == "number":
@@ -22,6 +25,8 @@ if output_name == "gender":
          reader = csv.reader(f)
          for line in reader:
              nouns.append((line[0], int(line[1])))
+             num_train = 30
+             num_test = 40
 
 verbs = open("stimuli/clean_verbs.txt", 'r').read().split()
 
@@ -43,8 +48,8 @@ else:
     testVerbs = list(zip(verbs[80:100], ['a']*80))
 
 # create train/test split with subjects
-trainSubjs = nouns[:40]
-testSubjs = nouns[41:50]
+trainSubjs = nouns[:num_train+1]
+testSubjs = nouns[num_train+1:num_test]
 
 
 sens = []
