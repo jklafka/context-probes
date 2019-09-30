@@ -3,10 +3,10 @@ import random
 
 nouns = []
 
-# change this to whatever you want the name of the output files to be
-output_name = "tense"
+# change this to which linguistic element you want to probe
+output_name = "number"
 # change the target for the noun tasks
-target_name = "verb"
+target_name = "subject"
 
 num_train = 80
 num_test = 100
