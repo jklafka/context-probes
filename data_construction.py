@@ -4,9 +4,9 @@ import random
 nouns = []
 
 # change this to which linguistic element you want to probe
-output_name = "number"
+output_name = "animacy"
 # change the target for the noun tasks
-target_name = "subject"
+target_name = "object"
 
 num_train = 80
 num_test = 100
@@ -27,6 +27,14 @@ if output_name == "gender":
              nouns.append((line[0], int(line[1])))
              num_train = 30
              num_test = 40
+
+## animacy
+if output_name == "animacy":
+    with open("stimuli/animacy_nouns.csv", 'r') as f:
+         reader = csv.reader(f)
+         for line in reader:
+             nouns.append((line[0], 0))
+             nouns.append((line[1], 1))
 
 verbs = open("stimuli/clean_verbs.txt", 'r').read().split()
 

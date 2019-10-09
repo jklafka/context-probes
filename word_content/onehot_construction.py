@@ -53,7 +53,7 @@ with open("../data/onehot_subject_train.csv", 'w') as csv_file:
 sens = []
 counter = 0
 for testVerb in testVerbs:
-    for testSubj in testSubjs:
+    for testSubj in trainSubjs:
          for testObj in testSubjs:
             if testObj != testSubj:
                 if counter % 2 == 0:
