@@ -16,7 +16,7 @@ with open("../stimuli/other_nouns.csv", 'r') as f:
         nouns.append([line[0], i]) #vocabulary index for one-hot vectors
 
 # simulate train-test split
-trainSubjs = nouns[:80]
+trainSubjs = nouns[:20]
 testSubjs = nouns[80:100]
 
 # create train set
