@@ -1,12 +1,11 @@
-import csv
-import random
+import csv, random
 
 nouns = []
 
 # change this to which linguistic element you want to probe
-output_name = "animacy"
+output_name = "dynamic"
 # change the target for the noun tasks
-target_name = "object"
+target_name = "verb"
 
 num_train = 80
 num_test = 100
@@ -51,14 +50,28 @@ if output_name == "tense":
         for line in reader:
             nouns.append((line[0],'a'))
 
+elif output_name == "dynamic" or output_name == "stative":
+    # read in training and testing verbs
+    verbs = []
+    with open("stimuli/dynamic_verbs.csv", 'r') as f:
+        reader = csv.reader(f)
+        for line in reader:
+            verbs.append(line)
+    trainVerbs = verbs[:30]
+    testVerbs = verbs[30:]
+    # get subjects and objects
+    with open("stimuli/other_nouns.csv", 'r') as f:
+        reader = csv.reader(f)
+        for line in reader:
+            nouns.append((line[0],'a'))
+
 else:
     trainVerbs = list(zip(verbs[:80], ['a']*80))
     testVerbs = list(zip(verbs[80:100], ['a']*80))
 
-# create train/test split with subjects
+# create trainset
 trainSubjs = nouns[:num_train+1]
 testSubjs = nouns[num_train+1:num_test]
-
 
 sens = []
 
@@ -81,11 +94,13 @@ for trainVerb in trainVerbs:
 random.shuffle(sens)
 sens = sens[:4000]
 
+# write to data folder in *local* repo
 with open("data/" + target_name + '_' + output_name + "_train.csv", 'w') as csv_file:
      data_writer = csv.writer(csv_file, delimiter = ',')
      for row in sens:
          data_writer.writerow(list(row))
 
+# now create testing set--analogous to training set construction
 sens = []
 
 for testVerb in testVerbs:
