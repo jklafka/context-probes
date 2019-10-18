@@ -79,7 +79,7 @@ for trainVerb in trainVerbs:
     for trainSubj in trainSubjs:
         for trainObj in trainSubjs:
             if trainObj != trainSubj:
-                if output_name == "tense":
+                if target_name == "verb":
                     target = trainVerb
                 else:
                     if target_name == "subject":
@@ -107,7 +107,7 @@ for testVerb in testVerbs:
     for testSubj in testSubjs:
         for testObj in testSubjs:
             if testObj != testSubj:
-                if output_name == "tense":
+                if target_name == "verb":
                     target = testVerb
                 else:
                     if target_name == "subject":
