@@ -3,7 +3,7 @@ import csv, random
 nouns = []
 
 # change this to which linguistic element you want to probe
-output_name = "dynamic"
+output_name = "argument"
 # change the target for the noun tasks
 target_name = "verb"
 
@@ -59,6 +59,21 @@ elif output_name == "dynamic" or output_name == "stative":
             verbs.append(line)
     trainVerbs = verbs[:30]
     testVerbs = verbs[30:]
+    # get subjects and objects
+    with open("stimuli/other_nouns.csv", 'r') as f:
+        reader = csv.reader(f)
+        for line in reader:
+            nouns.append((line[0],'a'))
+
+elif output_name == "argument":
+    # read in training and testing verbs
+    verbs = []
+    with open("stimuli/argument_verbs.csv", 'r') as f:
+        reader = csv.reader(f)
+        for line in reader:
+            verbs.append(line)
+    trainVerbs = verbs[:80]
+    testVerbs = verbs[80:]
     # get subjects and objects
     with open("stimuli/other_nouns.csv", 'r') as f:
         reader = csv.reader(f)
