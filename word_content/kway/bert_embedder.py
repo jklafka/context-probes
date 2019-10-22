@@ -57,9 +57,9 @@ for j in range(len(messages)):
     # get list of the embeddings from the lowest layer - 0 index for lowest layer up to 4
     embeddings = [encoded_layers[11][:, i, :] for i in TOKENS]
 
-    # make onehot vector
-    probe_vector = [0] * 100
-    probe_vector[int(probes[j]) - 1] = 1
+    # # make onehot vector
+    # probe_vector = [0] * 100
+    # probe_vector[int(probes[j]) - 1] = 1
 
     for i in TOKENS:
         vector = embeddings[i].tolist()[0]
@@ -67,8 +67,8 @@ for j in range(len(messages)):
         if j < NUM_TRAIN:
             with open("../../data/bert/train" + str(i) + ".csv", 'a') as output:
                 csv_writer = csv.writer(output)
-                csv_writer.writerow(vector + probe_vector)
+                csv_writer.writerow(vector + [probes[j]])
         else:
             with open("../../data/bert/test" + str(i) + ".csv", 'a') as output:
                 csv_writer = csv.writer(output)
-                csv_writer.writerow(vector + probe_vector)
+                csv_writer.writerow(vector + [probes[j]])

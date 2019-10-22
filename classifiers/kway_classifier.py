@@ -19,7 +19,7 @@ class ThreeLayerNet(nn.Module):
         self.lin1 = nn.Linear(input_dim, hidden_dims[0], bias = True)
         self.lin2 = nn.Linear(hidden_dims[0], hidden_dims[1], bias = True)
         self.lin3 = nn.Linear(hidden_dims[1], hidden_dims[2], bias = True)
-        self.linout = nn.Linear(hidden_dims[2], 20)
+        self.linout = nn.Linear(hidden_dims[2], 40)
 
     def forward(self, x):
         output = F.relu(self.lin1(x))
@@ -33,7 +33,7 @@ class OneLayerNet(nn.Module):
     def __init__(self, input_dim):
         super().__init__()
         self.lin1 = nn.Linear(input_dim, 1024, bias = True)
-        self.linout = nn.Linear(1024, 20)
+        self.linout = nn.Linear(1024, 40)
 
     def forward(self, x):
         output = F.relu(self.lin1(x))
@@ -46,7 +46,7 @@ REPS = ["bert", "elmo", "gpt"]
 
 for rep in REPS:
     # for each word
-    for i in range(3):
+    for i in range(5):
         trainset = []
         trainlabels = []
         with open("data/" + rep + "/train" + str(i) + ".csv", 'r') as train:

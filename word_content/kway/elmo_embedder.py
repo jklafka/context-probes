@@ -37,9 +37,9 @@ with open(args.testset, 'r') as input_data:
 
 for j in range(len(sentences)):
     embeddings = elmo.embed_sentence(sentences[j])
-    # make onehot vector
-    probe_vector = [0] * 100
-    probe_vector[int(probes[j]) - 1] = 1
+    # # make onehot vector
+    # probe_vector = [0] * 100
+    # probe_vector[int(probes[j]) - 1] = 1
 
     for i in TOKENS:
         vector = embeddings[1, i, :].tolist()
@@ -47,8 +47,8 @@ for j in range(len(sentences)):
         if j < NUM_TRAIN:
             with open("../../data/elmo/train" + str(i) + ".csv", 'a') as output:
                 csv_writer = csv.writer(output)
-                csv_writer.writerow(vector + probe_vector)
+                csv_writer.writerow(vector + [probes[j]])
         else:
             with open("../../data/elmo/test" + str(i) + ".csv", 'a') as output:
                 csv_writer = csv.writer(output)
-                csv_writer.writerow(vector + probe_vector)
+                csv_writer.writerow(vector + [probes[j]])
