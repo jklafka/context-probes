@@ -6,8 +6,10 @@ import torch.optim as optim
 ## set up logging
 parser = argparse.ArgumentParser()
 parser.add_argument("logname")
+parser.add_argument("k")
 args = parser.parse_args()
-logging.basicConfig(filename = "results/" + args.logname + ".csv", format="%(message)s", level=logging.INFO)
+logging.basicConfig(filename = "results/" + args.logname + '_' + args.k + ".csv", \
+    format="%(message)s", level=logging.INFO)
 
 # get CUDA device
 device = torch.device("cuda:0")
@@ -19,7 +21,7 @@ class ThreeLayerNet(nn.Module):
         self.lin1 = nn.Linear(input_dim, hidden_dims[0], bias = True)
         self.lin2 = nn.Linear(hidden_dims[0], hidden_dims[1], bias = True)
         self.lin3 = nn.Linear(hidden_dims[1], hidden_dims[2], bias = True)
-        self.linout = nn.Linear(hidden_dims[2], 40)
+        self.linout = nn.Linear(hidden_dims[2], int(args.k))
 
     def forward(self, x):
         output = F.relu(self.lin1(x))
@@ -33,7 +35,7 @@ class OneLayerNet(nn.Module):
     def __init__(self, input_dim):
         super().__init__()
         self.lin1 = nn.Linear(input_dim, 1024, bias = True)
-        self.linout = nn.Linear(1024, 40)
+        self.linout = nn.Linear(1024, int(args.k))
 
     def forward(self, x):
         output = F.relu(self.lin1(x))
