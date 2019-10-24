@@ -1,6 +1,6 @@
 import csv, random
 
-target_name = "object"
+target_name = "subject"
 assert target_name in ["subject", "object", "verb"], \
     "enter a valid content word type"
 
@@ -11,17 +11,19 @@ assert num_mappings < 50, "enter a number of mappings under 50"
 # read in verbs and vocabulary indices
 verbs = []
 verb_list = open("../stimuli/clean_verbs.txt", 'r').read().split()
+random.shuffle(verb_list)
 for i, verb in enumerate(verb_list):
     verbs.append([verb, i])
-random.shuffle(verbs)
 
 # read in nouns and vocabulary indices
-nouns = []
+nouns, noun_list = [], []
 with open("../stimuli/other_nouns.csv", 'r') as f:
     reader = csv.reader(f)
-    for i, line in enumerate(reader):
-        nouns.append([line[0], i]) #vocabulary index for one-hot vectors
-random.shuffle(nouns)
+    for line in reader:
+        noun_list.append(line[0]) #vocabulary index for one-hot vectors
+random.shuffle(noun_list)
+for i, noun in enumerate(noun_list):
+    nouns.append([noun, i])
 
 
 # set the train and test to be the same for the target
