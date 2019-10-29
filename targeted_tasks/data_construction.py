@@ -53,7 +53,7 @@ elif target_name == "verb":
     assert output_name in ["tense", "dynamic", "stative", "argument", "alternating"], \
         "enter a valid linguistic property to probe for"
     verbs = []
-    
+
     if output_name == "tense":
         present_verbs = open("../stimuli/present_verbs.txt", 'r').read().split()
         trainVerbs = list(zip(verbs[:40], [1] * 40)) + \
@@ -83,6 +83,8 @@ elif target_name == "verb":
 
     elif output_name == "alternating":
         # read in training and testing verbs
+        # causative verbs are marked with a 0
+        # inchoative verbs are marked with a 1
         with open("../stimuli/alternating_verbs.csv", 'r') as f:
             reader = csv.reader(f)
             for line in reader:
