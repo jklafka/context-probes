@@ -50,9 +50,10 @@ if target_name == "subject" or target_name == "object":
     testVerbs = list(zip(verbs[80:100], ['a']*80))
 
 elif target_name == "verb":
-    assert output_name in ["tense", "dynamic", "stative", "argument"], \
+    assert output_name in ["tense", "dynamic", "stative", "argument", "alternating"], \
         "enter a valid linguistic property to probe for"
-    ## tense
+    verbs = []
+    
     if output_name == "tense":
         present_verbs = open("../stimuli/present_verbs.txt", 'r').read().split()
         trainVerbs = list(zip(verbs[:40], [1] * 40)) + \
@@ -63,7 +64,6 @@ elif target_name == "verb":
 
     elif output_name == "dynamic" or output_name == "stative":
         # read in training and testing verbs
-        verbs = []
         with open("../stimuli/dynamic_verbs.csv", 'r') as f:
             reader = csv.reader(f)
             for line in reader:
@@ -74,8 +74,16 @@ elif target_name == "verb":
 
     elif output_name == "argument":
         # read in training and testing verbs
-        verbs = []
         with open("../stimuli/argument_verbs.csv", 'r') as f:
+            reader = csv.reader(f)
+            for line in reader:
+                verbs.append(line)
+        trainVerbs = verbs[:80]
+        testVerbs = verbs[80:]
+
+    elif output_name == "alternating":
+        # read in training and testing verbs
+        with open("../stimuli/alternating_verbs.csv", 'r') as f:
             reader = csv.reader(f)
             for line in reader:
                 verbs.append(line)
