@@ -43,7 +43,7 @@ class OneLayerNet(nn.Module):
         return output
 
 # record the different reps we're using
-REPS = ["bert", "elmo", "gpt"]
+REPS = ["bert", "elmo", "gpt", "glove"]
 
 
 for rep in REPS:
