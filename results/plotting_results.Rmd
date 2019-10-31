@@ -12,6 +12,18 @@ library(here)
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+```{r data}
+d <- read_csv(here("subject_number.csv"), 
+              col_names = c("rep", "size", "word", "score"))
+d %>%
+  group_by(rep, size, word) %>%
+  summarise(s = mean(score)) %>%
+  filter(size == "1024") %>%
+  ggplot(aes()) + 
+    geom_col(aes(x = word, y = s, fill = rep), position = "dodge")
+
+```
+
 ```{r data pipeline}
 read_results <- function(filename) {
   read_csv(here(filename), 
