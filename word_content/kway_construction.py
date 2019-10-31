@@ -1,10 +1,10 @@
 import csv, random
 
-target_name = "subject"
+target_name = "verb"
 assert target_name in ["subject", "object", "verb"], \
     "enter a valid content word type"
 
-num_mappings = 40
+num_mappings = 30
 # to leave enough nouns for the other noun (subj or obj)
 assert num_mappings < 50, "enter a number of mappings under 50"
 
