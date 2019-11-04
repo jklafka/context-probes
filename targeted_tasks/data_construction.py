@@ -50,9 +50,10 @@ if target_name == "subject" or target_name == "object":
     testVerbs = list(zip(verbs[80:100], ['a']*80))
 
 elif target_name == "verb":
-    assert output_name in ["tense", "dynamic", "stative", "argument", "alternating"], \
+    assert output_name in ["tense", "dynamic", "stative", "causative"], \
         "enter a valid linguistic property to probe for"
     verbs = []
+    nouns = []
 
     if output_name == "tense":
         present_verbs = open("../stimuli/present_verbs.txt", 'r').read().split()
@@ -68,24 +69,24 @@ elif target_name == "verb":
             reader = csv.reader(f)
             for line in reader:
                 verbs.append(line)
-        trainVerbs = verbs[:30]
-        testVerbs = verbs[30:]
+        trainVerbs = verbs[:60]
+        testVerbs = verbs[60:]
         # get subjects and objects
 
-    elif output_name == "argument":
-        # read in training and testing verbs
-        with open("../stimuli/argument_verbs.csv", 'r') as f:
-            reader = csv.reader(f)
-            for line in reader:
-                verbs.append(line)
-        trainVerbs = verbs[:80]
-        testVerbs = verbs[80:]
+    # elif output_name == "argument":
+    #     # read in training and testing verbs
+    #     with open("../stimuli/argument_verbs.csv", 'r') as f:
+    #         reader = csv.reader(f)
+    #         for line in reader:
+    #             verbs.append(line)
+    #     trainVerbs = verbs[:80]
+    #     testVerbs = verbs[80:]
 
-    elif output_name == "alternating":
+    elif output_name == "causative":
         # read in training and testing verbs
         # causative verbs are marked with a 0
         # inchoative verbs are marked with a 1
-        with open("../stimuli/alternating_verbs.csv", 'r') as f:
+        with open("../stimuli/causative_verbs.csv", 'r') as f:
             reader = csv.reader(f)
             for line in reader:
                 verbs.append(line)
@@ -93,7 +94,6 @@ elif target_name == "verb":
         testVerbs = verbs[80:]
 
     # get subjects and objects
-    nouns = []
     with open("../stimuli/other_nouns.csv", 'r') as f:
         reader = csv.reader(f)
         for line in reader:
@@ -123,7 +123,7 @@ random.shuffle(sens)
 sens = sens[:4000]
 
 # write to data folder in *local* repo
-with open("../data/" + target_name + '_' + output_name + "_train.csv", 'w') as csv_file:
+with open("../data/targeted_tasks/" + target_name + '_' + output_name + "/train.csv", 'w') as csv_file:
      data_writer = csv.writer(csv_file, delimiter = ',')
      for row in sens:
          data_writer.writerow(list(row))
@@ -148,7 +148,7 @@ for testVerb in testVerbs:
 random.shuffle(sens)
 sens = sens[:1000]
 
-with open("../data/" + target_name + '_' + output_name + "_test.csv", 'w') as csv_file:
+with open("../data/targeted_tasks/" + target_name + '_' + output_name + "/test.csv", 'w') as csv_file:
      data_writer = csv.writer(csv_file, delimiter = ',')
      for row in sens:
          data_writer.writerow(list(row))
