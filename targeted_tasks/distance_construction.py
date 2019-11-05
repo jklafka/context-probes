@@ -18,21 +18,13 @@ num_test = 100
 # make sure number or whatever other feature is balanced
 # record the indices of the five word positions we care about for each stim
 
-if distance is True:
-    adjectives = []
-    with open("../stimuli/adjectives.csv") as f:
-        reader = csv.reader(f)
-        for line in reader:
-            adjectives.append(line[0])
-    trainAdjs =
-    testAdjs =
-    trainSubjDist
-    trainObjDist
-    testSubjDist
-    testObjDist
-else:
-    adjectives = [""]
-
+adjectives = []
+with open("../stimuli/adjectives.csv") as f:
+    reader = csv.reader(f)
+    for line in reader:
+        adjectives.append(line[0])
+trainAdjs = adjectives[:80]
+testAdjs = adjectives[80:]
 
 ## subject and object probing tasks
 if target_name == "subject" or target_name == "object":
@@ -127,14 +119,16 @@ for trainVerb in trainVerbs:
                     target = trainSubj
                 elif target_name == "object":
                     target = trainObj
-                sens.append(("the " + trainSubj[0] + trainSubjDist[0] + trainVerb[0] + " the " + \
-                    trainObjDist[0] + trainObj[0], target[1]))
+                adjs = random.sample(trainAdjs, 3)
+                sens.append(("the " + trainSubj[0] + " who was {} ".format(adjs[0]) \
+                    + trainVerb[0] + " the" + " {} and {} ".format(adjs[1], adjs[2]) \
+                    + trainObj[0], target[1]))
 
 random.shuffle(sens)
 sens = sens[:4000]
 
 # write to data folder in *local* repo
-with open("../data/targeted_tasks/" + target_name + '_' + output_name + "/train.csv", 'w') as csv_file:
+with open("../data/targeted_tasks/distance/" + target_name + '_' + output_name + "/train.csv", 'w') as csv_file:
      data_writer = csv.writer(csv_file, delimiter = ',')
      for row in sens:
          data_writer.writerow(list(row))
@@ -152,14 +146,18 @@ for testVerb in testVerbs:
                     target = testSubj
                 elif target_name == "object":
                     target = testObj
-                sens.append(("the " + testSubj[0] + trainSubjDist[0] + testVerb[0] + \
-                    testObjDist[0] + " the " +  testObj[0], target[1]))
+                # sens.append(("the " + testSubj[0] + trainSubjDist[0] + testVerb[0] + \
+                #     testObjDist[0] + " the " +  testObj[0], target[1]))
+                adjs = random.sample(testAdjs, 3)
+                sens.append(("the " + testSubj[0] + " who was {} ".format(adjs[0]) \
+                    + testVerb[0] + " the" + " {} and {} ".format(adjs[1], adjs[2]) \
+                    + testObj[0], target[1]))
 
 
 random.shuffle(sens)
 sens = sens[:1000]
 
-with open("../data/targeted_tasks/" + target_name + '_' + output_name + "/test.csv", 'w') as csv_file:
+with open("../data/targeted_tasks/distance/" + target_name + '_' + output_name + "/test.csv", 'w') as csv_file:
      data_writer = csv.writer(csv_file, delimiter = ',')
      for row in sens:
          data_writer.writerow(list(row))
