@@ -6,81 +6,55 @@ output: html_document
 ---
 
 ```{r setup, include=FALSE}
-library(tidyverse)
-library(here)
+require(tidyverse)
+require(here)
+require(tidyboot)
+require(viridis)
 
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
 ```{r data}
-d <- read_csv(here("subject_number.csv"), 
-              col_names = c("rep", "size", "word", "score"))
+d <- read_csv(here("distance/distance_subject_number.csv"), 
+              col_names = c("rep", "size", "word", "score")) %>%
+  mutate(type = "number") %>%
+  bind_rows(read_csv(here("distance/distance_subject_gender.csv"), 
+              col_names = c("rep", "size", "word", "score")) %>% mutate(type = "gender")) %>%
+  bind_rows(read_csv(here("distance/distance_subject_animacy.csv"), 
+              col_names = c("rep", "size", "word", "score")) %>% mutate(type = "animacy"))
+
 d %>%
-  group_by(rep, size, word) %>%
+  mutate(type = as.factor(type), rep = as.factor(rep), size = as.numeric(size)) %>%
+  group_by(rep, size, word, type) %>%
   summarise(s = mean(score)) %>%
-  filter(size == "1024") %>%
+  filter(size == 1024) %>%
   ggplot(aes()) + 
-    geom_col(aes(x = word, y = s, fill = rep), position = "dodge")
-
-```
-
-```{r data pipeline}
-read_results <- function(filename) {
-  read_csv(here(filename), 
-                    col_names = c("rep", "word", "score"))
-}
+    geom_col(aes(x = type, y = s, fill = rep), position = "dodge", width = .5) + 
+    facet_wrap(~word, nrow = 1) # + 
+    # theme(panel.spacing = grid::unit(-1.25, "lines")) 
 
 
-read_csv(here("dynamic.csv"))
+## run50: get variance and plot error bars
+df <- read_csv(here("run50/subject_gender.csv"), 
+               col_names = c("Embedder", "Classifier", "Word", "Score")) %>%
+  mutate(Word = as.factor(Word),
+         Classifier = as.factor(Classifier), Embedder = as.factor(Embedder))
 
+df_boot <- df %>%
+  group_by(Embedder, Classifier, Word) %>%
+  tidyboot_mean(Score) %>%
+  rename(Score = empirical_stat) %>%
+  mutate(Word = recode(Word, 
+                       `0` = "the_1", `1` = "cat", `2` = "chased", `3` = "the_2", `4` = "rat"))
 
-number <- read_csv(here("scil/number.csv"))
-number$word <- rep(c("the (subj)", "cat", "chased", "the (obj)", "rats"), times = 4) %>% 
-  factor(levels = c("the (subj)", "cat", "chased", "the (obj)", "rats"))
-sn <- read_results("scil/subject_number.csv") %>%
-  mutate(target = "subject")
-sn$word <- rep(c("the (subj)", "cat", "chased", "the (obj)", "rats"), times = 4) %>% 
-  factor(levels = c("the (subj)", "cat", "chased", "the (obj)", "rats"))
-
-on <- read_results("scil/object_number.csv") %>%
-  mutate(target = "object")
-on$word <- rep(c("the (subj)", "cat", "chased", "the (obj)", "rats"), times = 4) %>% 
-  factor(levels = c("the (subj)", "cat", "chased", "the (obj)", "rats"))
-number <- sn %>% bind_rows(on)
-
-number %>% 
-  filter(target == "subject") %>%
-  ggplot(aes(x = `Probed word position`, y = Accuracy, color = Embedder, group = Embedder)) + 
-  geom_point() + 
-  geom_line() 
-
-
-og <- read_results("scil/object_gender.csv") %>% 
-  mutate(target = "object")
-og$word <- rep(c("the (subj)", "cat", "chased", "the (obj)", "rats"), times = 4) %>% 
-  factor(levels = c("the (subj)", "cat", "chased", "the (obj)", "rats"))
-sg <- read_results("scil/subject_gender.csv") %>%
-  mutate(target = "subject")
-sg$word <- rep(c("the (subj)", "cat", "chased", "the (obj)", "rats"), times = 4) %>% 
-  factor(levels = c("the (subj)", "cat", "chased", "the (obj)", "rats"))
-gender <- sg %>% bind_rows(og)
-
-oa <- read_results("scil/object_animacy.csv")
-
-
-sa <- read_results("scil/subject_animacy.csv")
-
-# plotting the data
-
-```
-
-```{r tests}
-res <- subject %>% 
-  filter(rep == "bert", word == 4) %>% slice(1, 3) %>% # for example
-  select(score) %>% 
-  mutate(score = score * 1000) %>% 
-  mutate(total = 1000) %>% 
-  t()
-
-res %>% prop.test()
+df_boot %>%
+  filter(Classifier == "1024") %>%
+  ggplot(aes(x = Word, fill = Embedder)) + 
+    geom_col(aes(y = Score), alpha = .6, 
+             position = position_dodge2(width = .75)) + 
+    geom_errorbar(aes(ymin = ci_lower, ymax = ci_upper, group = Embedder), alpha = 1, 
+                  position =  position_dodge2(width = 0.25, padding = .75)) + 
+    theme_bw() + 
+    scale_fill_viridis(discrete = T, option = "B") 
+    
 ```
