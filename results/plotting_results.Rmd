@@ -14,13 +14,53 @@ require(viridis)
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+```{r read in}
+## run50: get variance and plot error bars
+read_run50 <- function(task) {
+  
+  read_csv(here(paste0("results/run50/", task, ".csv")), 
+               col_names = c("Embedder", "Classifier", "Word", "Score")) %>%
+    mutate(Word = as.factor(Word),
+           Classifier = as.factor(Classifier), 
+           Embedder = as.factor(Embedder),
+           Task = task)
+}
+
+tasks <- c("subject_number", "subject_gender", "subject_animacy")
+run50 <- map_dfr(tasks, ~read_run50(.))
+
+
+```
+
+```{r bootstrap}
+run50_boot <- run50 %>%
+  group_by(Task, Embedder, Classifier, Word) %>%
+  tidyboot_mean(Score) %>%
+  rename(Score = empirical_stat) %>%
+  mutate(Word = recode(Word, 
+                       `0` = "the_1", `1` = "cat", `2` = "chased", `3` = "the_2", `4` = "rat"))
+```
+
+```{r plot results}
+run50_boot %>%
+  filter(Classifier == "1024") %>%
+  ggplot(aes(x = Word, fill = Embedder)) + 
+    geom_col(aes(y = Score), alpha = .6, 
+             position = position_dodge2(width = .75)) + 
+    geom_errorbar(aes(ymin = ci_lower, ymax = ci_upper, group = Embedder), alpha = 1, 
+                  position =  position_dodge2(width = 0.25, padding = .75)) + 
+    theme_bw() + 
+    scale_fill_viridis(discrete = T, option = "B") 
+```
+
+Old data plotting
 ```{r data}
-d <- read_csv(here("distance/distance_subject_number.csv"), 
+d <- read_csv(here("results/distance/distance_subject_number.csv"), 
               col_names = c("rep", "size", "word", "score")) %>%
   mutate(type = "number") %>%
-  bind_rows(read_csv(here("distance/distance_subject_gender.csv"), 
+  bind_rows(read_csv(here("results/distance/distance_subject_gender.csv"), 
               col_names = c("rep", "size", "word", "score")) %>% mutate(type = "gender")) %>%
-  bind_rows(read_csv(here("distance/distance_subject_animacy.csv"), 
+  bind_rows(read_csv(here("results/distance/distance_subject_animacy.csv"), 
               col_names = c("rep", "size", "word", "score")) %>% mutate(type = "animacy"))
 
 d %>%
@@ -33,28 +73,5 @@ d %>%
     facet_wrap(~word, nrow = 1) # + 
     # theme(panel.spacing = grid::unit(-1.25, "lines")) 
 
-
-## run50: get variance and plot error bars
-df <- read_csv(here("run50/subject_gender.csv"), 
-               col_names = c("Embedder", "Classifier", "Word", "Score")) %>%
-  mutate(Word = as.factor(Word),
-         Classifier = as.factor(Classifier), Embedder = as.factor(Embedder))
-
-df_boot <- df %>%
-  group_by(Embedder, Classifier, Word) %>%
-  tidyboot_mean(Score) %>%
-  rename(Score = empirical_stat) %>%
-  mutate(Word = recode(Word, 
-                       `0` = "the_1", `1` = "cat", `2` = "chased", `3` = "the_2", `4` = "rat"))
-
-df_boot %>%
-  filter(Classifier == "1024") %>%
-  ggplot(aes(x = Word, fill = Embedder)) + 
-    geom_col(aes(y = Score), alpha = .6, 
-             position = position_dodge2(width = .75)) + 
-    geom_errorbar(aes(ymin = ci_lower, ymax = ci_upper, group = Embedder), alpha = 1, 
-                  position =  position_dodge2(width = 0.25, padding = .75)) + 
-    theme_bw() + 
-    scale_fill_viridis(discrete = T, option = "B") 
     
 ```
