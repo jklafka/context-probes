@@ -57,6 +57,7 @@ elif target_name == "verb":
 
     if output_name == "tense":
         present_verbs = open("../stimuli/present_verbs.txt", 'r').read().split()
+        verbs = open("../stimuli/clean_verbs.txt", 'r').read().split()
         trainVerbs = list(zip(verbs[:40], [1] * 40)) + \
             list(zip(present_verbs[:40], [0] * 40))
         testVerbs = list(zip(verbs[81:90], [1] * 10)) + \
