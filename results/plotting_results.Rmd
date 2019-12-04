@@ -14,10 +14,73 @@ require(viridis)
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-```{r read in}
+```{r read in bootstraps and plot}
 targeted_tasks <- read_csv(here("results/run50/bootstraps_alltasks.csv"))
 distance_tasks <- read_csv(here("results/distance/run50/bootstraps_all_tasks.csv"))
+wc_tasks <- read_csv(here("results/word_content/run50/bootstraps_all_tasks.csv"))
 
+targeted_tasks %>%
+  mutate(Word = as_factor(Word)) %>%
+  filter(Classifier == "1024", 
+         Task %in% c("subject_number", "subject_animacy", "subject_gender")) %>%
+  ggplot(aes(x = Word, fill = Embedder)) + 
+    geom_col(aes(y = Score), alpha = .6, 
+             position = position_dodge2(width = .75)) + 
+    geom_errorbar(aes(ymin = ci_lower, ymax = ci_upper, group = Embedder), alpha = 1, 
+                  position =  position_dodge2(width = 0.25, padding = .75)) + 
+    theme_bw() + 
+    scale_fill_viridis(discrete = T, option = "B") +
+    ggtitle("Subject task results")
+```
+
+## How we got the bootstraps
+
+Targeted (or distance) tasks read-in, bootsrap and plotting 
+```{r read in results}
+## run50: get variance and plot error bars
+read_run50 <- function(task) {
+  
+  read_csv(here(paste0("results/distance/run50/", task, ".csv")), 
+               col_names = c("Embedder", "Classifier", "Word", "Score")) %>%
+    mutate(Word = as.factor(Word),
+           Classifier = as.factor(Classifier), 
+           Embedder = as.factor(Embedder),
+           Task = task)
+}
+
+tasks <- c("subject_number", "subject_gender", "subject_animacy",
+           "object_number", "object_gender", "object_animacy",
+           "verb_tense", "verb_dynamic", "verb_causative")
+run50 <- map_dfr(tasks, ~read_run50(.))
+```
+
+```{r bootstrap}
+## for targeted and distance tasks
+run50_boot <- run50 %>%
+  filter(Score > 60 | Embedder == "glove" | (Embedder == "gpt" & Word == 0)) %>% 
+  group_by(Task, Embedder, Classifier, Word) %>%
+  tidyboot_mean(Score) %>%
+  rename(Score = empirical_stat) %>%
+  mutate(Word = recode(Word, 
+                       `0` = "the_1", `1` = "cat", `2` = "chased", `3` = "the_2", `4` = "rat"))
+
+run50_boot %>% write_csv(here("results/distance/run50/bootstraps_all_tasks.csv"))
+
+run50_boot %>%
+  filter(Classifier == "1024", 
+         Task %in% c("subject_number", "subject_gender", "subject_animacy")) %>%
+  ggplot(aes(x = Word, fill = Embedder)) + 
+    geom_col(aes(y = Score), alpha = .6, 
+             position = position_dodge2(width = .75)) + 
+    geom_errorbar(aes(ymin = ci_lower, ymax = ci_upper, group = Embedder), alpha = 1, 
+                  position =  position_dodge2(width = 0.25, padding = .75)) + 
+    theme_bw() + 
+    scale_fill_viridis(discrete = T, option = "B") +
+    ggtitle("Distance subject probing task results")
+```
+
+Word content tasks read-in, bootstrap and plotting
+```{r read in word content results}
 ## run50: get variance and plot error bars
 read_run50 <- function(task) {
   
@@ -29,38 +92,23 @@ read_run50 <- function(task) {
            Task = task)
 }
 
-# tasks <- c("subject_number", "subject_gender", "subject_animacy",
-#            "object_number", "object_gender", "object_animacy",
-#            "verb_tense", "verb_dynamic", "verb_causative")
 tasks <- c("subject", "object", "verb")
 run50 <- map_dfr(tasks, ~read_run50(.))
-
-
 ```
 
-```{r bootstrap}
-## for targeted and distance tasks
-run50_boot <- run50 %>%
-  filter(Task %in% c("subject_number", "subject_gender", "subject_animacy"), 
-         Score > 50) %>% 
-  group_by(Task, Embedder, Classifier, Word) %>%
-  tidyboot_mean(Score) %>%
-  rename(Score = empirical_stat) %>%
-  mutate(Word = recode(Word, 
-                       `0` = "the_1", `1` = "cat", `2` = "chased", `3` = "the_2", `4` = "rat"))
-
+```{r word content}
 ## for word content tasks
 run50_boot <- run50 %>%
+  filter(Score > 5 | Embedder == "glove" | (Embedder == "gpt" & Word == 0)) %>% 
   group_by(Task, Embedder, Classifier, Word) %>%
   tidyboot_mean(Score) %>%
   rename(Score = empirical_stat) %>%
   mutate(Word = recode(Word, 
                        `0` = "the_1", `1` = "cat", `2` = "chased", `3` = "the_2", `4` = "rat"))
-```
 
-```{r plot results}
 run50_boot %>%
-  filter(Classifier == "1024", Task == "subject") %>%
+  filter(Classifier == "1024", 
+         Task == "subject") %>%
   ggplot(aes(x = Word, fill = Embedder)) + 
     geom_col(aes(y = Score), alpha = .6, 
              position = position_dodge2(width = .75)) + 
@@ -68,28 +116,5 @@ run50_boot %>%
                   position =  position_dodge2(width = 0.25, padding = .75)) + 
     theme_bw() + 
     scale_fill_viridis(discrete = T, option = "B") +
-    ggtitle("Word content task results")
-```
-
-Old data plotting
-```{r data}
-d <- read_csv(here("results/distance/distance_subject_number.csv"), 
-              col_names = c("rep", "size", "word", "score")) %>%
-  mutate(type = "number") %>%
-  bind_rows(read_csv(here("results/distance/distance_subject_gender.csv"), 
-              col_names = c("rep", "size", "word", "score")) %>% mutate(type = "gender")) %>%
-  bind_rows(read_csv(here("results/distance/distance_subject_animacy.csv"), 
-              col_names = c("rep", "size", "word", "score")) %>% mutate(type = "animacy"))
-
-d %>%
-  mutate(type = as.factor(type), rep = as.factor(rep), size = as.numeric(size)) %>%
-  group_by(rep, size, word, type) %>%
-  summarise(s = mean(score)) %>%
-  filter(size == 1024) %>%
-  ggplot(aes()) + 
-    geom_col(aes(x = type, y = s, fill = rep), position = "dodge", width = .5) + 
-    facet_wrap(~word, nrow = 1) # + 
-    # theme(panel.spacing = grid::unit(-1.25, "lines")) 
-
-    
+    ggtitle("Word content subject probing task results")
 ```
