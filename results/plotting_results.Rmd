@@ -15,27 +15,25 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 ```{r read in bootstraps and plot}
-targeted_tasks <- read_csv(here("results/run50/bootstraps_alltasks.csv"))
+targeted_tasks <- read_csv(here("results/run50/bootstraps_all_tasks.csv"))
 distance_tasks <- read_csv(here("results/distance/run50/bootstraps_all_tasks.csv"))
 wc_tasks <- read_csv(here("results/word_content/run50/bootstraps_all_tasks.csv"))
 
-targeted_tasks %>%
-  mutate(Word = as_factor(Word)) %>%
-  filter(Classifier == "1024", 
-         Task %in% c("subject_number", "subject_animacy", "subject_gender")) %>%
-  ggplot(aes(x = Word, fill = Embedder)) + 
+distance_tasks %>%
+  filter(Classifier == "1024", Target == "object", Task == "number", Encoder == "ELMo") %>%
+  ggplot(aes(x = Word, fill = Encoder)) + 
     geom_col(aes(y = Score), alpha = .6, 
              position = position_dodge2(width = .75)) + 
-    geom_errorbar(aes(ymin = ci_lower, ymax = ci_upper, group = Embedder), alpha = 1, 
+    geom_errorbar(aes(ymin = ci_lower, ymax = ci_upper, group = Encoder), alpha = 1, 
                   position =  position_dodge2(width = 0.25, padding = .75)) + 
+    coord_cartesian(ylim = c(50, 100)) + 
     theme_bw() + 
-    scale_fill_viridis(discrete = T, option = "B") +
-    ggtitle("Subject task results")
+    scale_fill_grey() 
 ```
 
 ## How we got the bootstraps
 
-Targeted (or distance) tasks read-in, bootsrap and plotting 
+Targeted (or distance) tasks read-in, bootstrap and plotting 
 ```{r read in results}
 ## run50: get variance and plot error bars
 read_run50 <- function(task) {
@@ -56,27 +54,42 @@ run50 <- map_dfr(tasks, ~read_run50(.))
 
 ```{r bootstrap}
 ## for targeted and distance tasks
+## read in results, filter to results where the classifier didn't get stuck in a local minimum
 run50_boot <- run50 %>%
-  filter(Score > 60 | Embedder == "glove" | (Embedder == "gpt" & Word == 0)) %>% 
+  filter(Score > 60 | Embedder == "glove" | 
+           (Task %in% c("object_number", "object_gender", "object_animacy") #for objects
+              & Embedder == "gpt") |
+           (Task %in% c("subject_number", "subject_gender", "subject_animacy") #for subjects
+              & Embedder == "gpt" & Word == 0) | 
+           (Task %in% c("verb_tense", "verb_dynamic", "verb_causative") 
+              & Embedder == "gpt" & Word %in% c(0, 1))) %>% #for verbs
   group_by(Task, Embedder, Classifier, Word) %>%
   tidyboot_mean(Score) %>%
   rename(Score = empirical_stat) %>%
   mutate(Word = recode(Word, 
                        `0` = "the_1", `1` = "cat", `2` = "chased", `3` = "the_2", `4` = "rat"))
 
-run50_boot %>% write_csv(here("results/distance/run50/bootstraps_all_tasks.csv"))
+results <- run50_boot %>% 
+  ungroup() %>%
+  mutate(Embedder = recode(Embedder, 
+                           "bert" = "BERT", "elmo" = "ELMo", "glove" = "GLoVe", "gpt" = "GPT"),
+         Target = str_extract(Task, "[a-z]+"),
+         Task = str_extract(Task, "[a-z]+$"), 
+         Task = as_factor(Task),
+         Embedder = fct_relevel(Embedder, "GLoVe", "GPT", "BERT", "ELMo")) %>%
+  rename(Encoder = Embedder) #%>%
+  # write_csv(here("results/distance/run50/bootstraps_all_tasks.csv"))
 
-run50_boot %>%
-  filter(Classifier == "1024", 
-         Task %in% c("subject_number", "subject_gender", "subject_animacy")) %>%
-  ggplot(aes(x = Word, fill = Embedder)) + 
+results %>%
+  filter(Classifier == "1024", Target == "subject") %>%
+  ggplot(aes(x = Word, fill = Encoder)) + 
     geom_col(aes(y = Score), alpha = .6, 
              position = position_dodge2(width = .75)) + 
-    geom_errorbar(aes(ymin = ci_lower, ymax = ci_upper, group = Embedder), alpha = 1, 
+    geom_errorbar(aes(ymin = ci_lower, ymax = ci_upper, group = Encoder), alpha = 1, 
                   position =  position_dodge2(width = 0.25, padding = .75)) + 
+    coord_cartesian(ylim = c(50, 100)) + 
     theme_bw() + 
-    scale_fill_viridis(discrete = T, option = "B") +
-    ggtitle("Distance subject probing task results")
+    scale_fill_grey() 
 ```
 
 Word content tasks read-in, bootstrap and plotting
