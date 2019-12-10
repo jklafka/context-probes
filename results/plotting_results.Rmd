@@ -9,26 +9,43 @@ output: html_document
 require(tidyverse)
 require(here)
 require(tidyboot)
-require(viridis)
 
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
 ```{r read in bootstraps and plot}
-targeted_tasks <- read_csv(here("results/run50/bootstraps_all_tasks.csv"))
-distance_tasks <- read_csv(here("results/distance/run50/bootstraps_all_tasks.csv"))
-wc_tasks <- read_csv(here("results/word_content/run50/bootstraps_all_tasks.csv"))
+targeted_tasks <- read_csv(here("results/acl/base_tasks.csv"))
+distance_tasks <- read_csv(here("results/acl/distance_tasks.csv"))
+wc_tasks <- read_csv(here("results/acl/word_identity.csv"))
 
-distance_tasks %>%
-  filter(Classifier == "1024", Target == "object", Task == "number", Encoder == "ELMo") %>%
-  ggplot(aes(x = Word, fill = Encoder)) + 
-    geom_col(aes(y = Score), alpha = .6, 
-             position = position_dodge2(width = .75)) + 
+targeted_tasks %>%
+  mutate(Encoder = factor(Encoder, levels = c("GLoVe", "GPT", "BERT", "ELMo")), 
+         `Probed Word` = as_factor(`Probed Word`)) %>%
+  filter(Classifier == "1024", Target == "verb") %>%
+  ggplot(aes(x = `Probed Word`)) + 
     geom_errorbar(aes(ymin = ci_lower, ymax = ci_upper, group = Encoder), alpha = 1, 
                   position =  position_dodge2(width = 0.25, padding = .75)) + 
-    coord_cartesian(ylim = c(50, 100)) + 
+    geom_col(aes(y = Accuracy, fill = Encoder, color = Encoder), 
+                      alpha = .6, position = position_dodge2(width = .75)) + 
+    coord_cartesian(ylim = c(25, 100)) + 
+    scale_y_continuous(breaks = c(25, 50, 75, 100)) + 
     theme_bw() + 
-    scale_fill_grey() 
+    scale_fill_grey() + 
+    scale_color_manual(values = c("#696969", "#a9a9a9", "#696969", "#a9a9a9"))
+
+wc_tasks %>%
+  mutate(Encoder = factor(Encoder, levels = c("GLoVe", "GPT", "BERT", "ELMo")), 
+         `Probed Word` = as_factor(`Probed Word`)) %>%
+  filter(Classifier == "1024", Task == "subject") %>%
+  ggplot(aes(x = `Probed Word`)) + 
+    geom_errorbar(aes(ymin = ci_lower, ymax = ci_upper, group = Encoder), alpha = 1, 
+                  position =  position_dodge2(width = 0.25, padding = .75)) + 
+    geom_col(aes(y = Accuracy, fill = Encoder, color = Encoder), 
+                      alpha = .6, position = position_dodge2(width = .75)) + 
+    scale_y_continuous(breaks = c(25, 50, 75, 100)) + 
+    theme_bw() + 
+    scale_fill_grey() + 
+    scale_color_manual(values = c("#696969", "#a9a9a9", "#696969", "#a9a9a9"))
 ```
 
 ## How we got the bootstraps
@@ -38,7 +55,7 @@ Targeted (or distance) tasks read-in, bootstrap and plotting
 ## run50: get variance and plot error bars
 read_run50 <- function(task) {
   
-  read_csv(here(paste0("results/distance/run50/", task, ".csv")), 
+  read_csv(here(paste0("results/run50/", task, ".csv")), 
                col_names = c("Embedder", "Classifier", "Word", "Score")) %>%
     mutate(Word = as.factor(Word),
            Classifier = as.factor(Classifier), 
@@ -56,40 +73,45 @@ run50 <- map_dfr(tasks, ~read_run50(.))
 ## for targeted and distance tasks
 ## read in results, filter to results where the classifier didn't get stuck in a local minimum
 run50_boot <- run50 %>%
-  filter(Score > 60 | Embedder == "glove" | 
+  filter(Score > 60 | Embedder == "glove" |
            (Task %in% c("object_number", "object_gender", "object_animacy") #for objects
               & Embedder == "gpt") |
            (Task %in% c("subject_number", "subject_gender", "subject_animacy") #for subjects
-              & Embedder == "gpt" & Word == 0) | 
-           (Task %in% c("verb_tense", "verb_dynamic", "verb_causative") 
+              & Embedder == "gpt" & Word == 0) |
+           (Task %in% c("verb_tense", "verb_dynamic", "verb_causative")
               & Embedder == "gpt" & Word %in% c(0, 1))) %>% #for verbs
   group_by(Task, Embedder, Classifier, Word) %>%
   tidyboot_mean(Score) %>%
-  rename(Score = empirical_stat) %>%
-  mutate(Word = recode(Word, 
-                       `0` = "the_1", `1` = "cat", `2` = "chased", `3` = "the_2", `4` = "rat"))
+  ungroup() 
 
-results <- run50_boot %>% 
-  ungroup() %>%
-  mutate(Embedder = recode(Embedder, 
+results <- run50_boot %>%
+  mutate(Word = recode(Word, 
+                       `0` = "the_1", `1` = "lawyers", 
+                       `2` = "questioned", `3` = "the_2", `4`= "judge"), 
+         Embedder = recode(Embedder, 
                            "bert" = "BERT", "elmo" = "ELMo", "glove" = "GLoVe", "gpt" = "GPT"),
          Target = str_extract(Task, "[a-z]+"),
          Task = str_extract(Task, "[a-z]+$"), 
          Task = as_factor(Task),
          Embedder = fct_relevel(Embedder, "GLoVe", "GPT", "BERT", "ELMo")) %>%
-  rename(Encoder = Embedder) #%>%
-  # write_csv(here("results/distance/run50/bootstraps_all_tasks.csv"))
+  rename(Encoder = Embedder, Accuracy = empirical_stat) 
+  # bind_rows(targeted_tasks) %>%
+  # write_csv(here("results/run50/bootstraps_all_tasks.csv"))
 
 results %>%
+  mutate(Encoder = factor(Encoder, levels = c("GLoVe", "GPT", "BERT", "ELMo")), 
+         Word = as_factor(Word)) %>%
   filter(Classifier == "1024", Target == "subject") %>%
-  ggplot(aes(x = Word, fill = Encoder)) + 
-    geom_col(aes(y = Score), alpha = .6, 
-             position = position_dodge2(width = .75)) + 
+  ggplot(aes(x = Word)) + 
     geom_errorbar(aes(ymin = ci_lower, ymax = ci_upper, group = Encoder), alpha = 1, 
                   position =  position_dodge2(width = 0.25, padding = .75)) + 
-    coord_cartesian(ylim = c(50, 100)) + 
+    geom_col(aes(y = Accuracy, fill = Encoder, color = Encoder), 
+                      alpha = .6, position = position_dodge2(width = .75)) + 
+    coord_cartesian(ylim = c(25, 100)) + 
+    scale_y_continuous(breaks = c(25, 50, 75, 100)) + 
     theme_bw() + 
-    scale_fill_grey() 
+    scale_fill_grey() + 
+    scale_color_manual(values = c("#696969", "#a9a9a9", "#696969", "#a9a9a9"))
 ```
 
 Word content tasks read-in, bootstrap and plotting
@@ -112,14 +134,26 @@ run50 <- map_dfr(tasks, ~read_run50(.))
 ```{r word content}
 ## for word content tasks
 run50_boot <- run50 %>%
-  filter(Score > 5 | Embedder == "glove" | (Embedder == "gpt" & Word == 0)) %>% 
+  filter(Embedder == "glove") %>%
+  # filter(Score > 5 | Embedder == "glove" | (Embedder == "gpt" & Word == 0)) %>% 
   group_by(Task, Embedder, Classifier, Word) %>%
   tidyboot_mean(Score) %>%
   rename(Score = empirical_stat) %>%
   mutate(Word = recode(Word, 
-                       `0` = "the_1", `1` = "cat", `2` = "chased", `3` = "the_2", `4` = "rat"))
+                       `0` = "the_1", `1` = "lawyers", 
+                       `2` = "questioned", `3` = "the_2", `4`= "judge"))
 
-run50_boot %>%
+wc_tasks %>%
+  bind_rows(run50_boot) %>%
+  mutate(Word = recode(Word, 
+                       `0` = "the_1", `1` = "lawyers", 
+                       `2` = "questioned", `3` = "the_2", `4`= "judge"), 
+         Embedder = recode(Embedder, 
+                           "bert" = "BERT", "elmo" = "ELMo", "glove" = "GLoVe", "gpt" = "GPT"),
+         Embedder = fct_relevel(Embedder, "GLoVe", "GPT", "BERT", "ELMo")) %>%
+  rename(Encoder = Embedder, Accuracy = Score) 
+
+wrun50_boot %>%
   filter(Classifier == "1024", 
          Task == "subject") %>%
   ggplot(aes(x = Word, fill = Embedder)) + 
