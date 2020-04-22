@@ -18,9 +18,20 @@ targeted_tasks <- read_csv(here("results/acl/base_tasks.csv"))
 distance_tasks <- read_csv(here("results/acl/distance_tasks.csv"))
 wc_tasks <- read_csv(here("results/acl/word_identity.csv"))
 
+Task_Labels <- tibble(position = c(12, 27, 42),
+                          length = c(15, 30, 45),
+                          gram = c("unigram", "unigram", "unigram"),
+                          mean= c(4, 4, 4))
+
+# 
+
 targeted_tasks %>%
   mutate(Encoder = factor(Encoder, levels = c("GLoVe", "GPT", "BERT", "ELMo")), 
-         `Probed Word` = as_factor(`Probed Word`)) %>%
+         Task = factor(Task, 
+                       levels = c("number", "gender", "animacy", "tense", "dynamic", "causative")),
+         `Probed Word` = as_factor(`Probed Word`), 
+         Task_Label = ifelse(Encoder == "GLoVe" & `Probed Word` == "the_1", 
+                             as.character(Task), "")) %>%
   filter(Classifier == "1024", Target == "verb") %>%
   ggplot(aes(x = `Probed Word`)) + 
     geom_errorbar(aes(ymin = ci_lower, ymax = ci_upper, group = Encoder), alpha = 1, 
@@ -31,7 +42,16 @@ targeted_tasks %>%
     scale_y_continuous(breaks = c(25, 50, 75, 100)) + 
     theme_bw() + 
     scale_fill_grey() + 
-    scale_color_manual(values = c("#696969", "#a9a9a9", "#696969", "#a9a9a9"))
+    scale_color_manual(values = c("#696969", "#a9a9a9", "#696969", "#a9a9a9")) + 
+    geom_text(aes(x = `Probed Word`, y = Accuracy, label = Task_Label, group = Task), 
+              position = position_dodge(width = 0.50),
+              size = 3,
+              vjust = -0.5,
+              hjust = 2.5,
+              angle = -45)
+    # geom_text(data = Task_Labels, aes(x = ))
+    # geom_text(aes(y = Accuracy, label = Task_Label), size = 3, position = position_dodge(1),
+              # angle = 45, vjust = 0)
 
 wc_tasks %>%
   mutate(Encoder = factor(Encoder, levels = c("GLoVe", "GPT", "BERT", "ELMo")), 
