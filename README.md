@@ -1,6 +1,12 @@
 # context-probes
 What is the "context" in a contextual word vector? We investigate what vectors from popular encoders such as BERT and ELMo, along with a non-contextual GLoVe baseline, encode about their contexts.
 
+## process
+
+In order to run the full_probes.sh script, you’ll need to create a “data” folder with four subfolders: “glove”, “bert”, “gpt” and “elmo”. Each one of these folders should have two subfolders: “train” and “test". You can do this manually in a couple minutes, or write a bash script to do it for you. The cleanup.sh script should live in the data folder and clean out (e.g. rm *) everything from each of these folders. 
+
+When you run the full_probes.sh script, you need to supply an argument that’s the name of the folder you keep the comma-separated value files containing the training and testing sentences along with positive and negative labels. 
+
 ## Folders
 *targeted_tasks*: This folder holds BERT, ELMo, GPT and GLoVe encoders, along with code for constructing the input to these encoders.
 
